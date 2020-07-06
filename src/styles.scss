@@ -1,1 +1,267 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --color-light-1: #e7e7e7;
+  --color-black: #181818;
+  --color-grey: #7e7e7e;
+  --default-space: 20px;
+  --color-light-blue: #3963eede;
+  --color-light-blue-1: #3963ee98;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: inherit;
+  position: relative;
+  background-color: var(--color-light-1);
+}
+
+.main {
+  padding: 0 15px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.navigation {
+  width: 250px;
+  position: relative;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 100px 1fr 200px;
+
+  .logo {
+    align-self: center;
+    grid-row: 1 / 2;
+    justify-self: center;
+
+    h3 {
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-size: 16px;
+      color: var(--color-light-blue);
+    }
+  }
+
+  .nav {
+    width: inherit;
+    list-style: none;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(75px, min-content));
+    grid-row-gap: 15px;
+    align-items: center;
+
+    &__item {
+      justify-self: stretch;
+      display: flex;
+      align-items: center;
+      padding: 15px 0;
+      outline: none;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: all .2s;
+
+      &:hover { background-color: rgba(47, 105, 230, 0.178); }
+      &:hover > .icon { fill: var(--color-light-blue-1); }
+      &:hover > .icon + .nav__link { color: var(--color-black); }
+
+      .icon {
+        margin-left: 10px;
+        fill: var(--color-grey);
+      }
+    }
+
+    &__item.menu-active { background-color: rgba(47, 105, 230, 0.178) }
+    &__item.menu-active > .icon { fill: var(--color-light-blue-1); }
+    &__item.menu-active > .icon + .nav__link { color: var(--color-black); }
+
+    &__link,
+    &__link:link,
+    &__link:visited {
+      margin-left: 15px;
+      font-size: 18px;
+      text-decoration: none;
+      color: var(--color-grey);
+    }
+  }
+}
+
+.user {
+  position: absolute;
+  right: 0;
+}
+
+rl-listings {
+  flex: auto;
+  padding: 0 15px;
+  display: grid;
+  grid-template-rows: min-content min-content calc(100vh - 200px);
+}
+
+.search {
+  display: grid;
+  position: relative;
+  margin: var(--default-space) 0;
+  height: 60px;
+
+  input {
+    display: block;
+    outline: none;
+    border: 0;
+    background-color: var(--color-light-1);
+    border-bottom: 1px solid var(--color-grey);
+    padding: 25px 20px 20px 40px;
+  }
+
+  .icon-search {
+    fill: var(--color-grey);
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    padding-left: 30px;
+    transform: translate(-50%, -50%);
+  }
+
+  input::-webkit-input-placeholder {
+    color: var(--color-grey);
+    font-weight: 500;
+    font-size: 17px;
+  }
+}
+
+.listing-actions {
+  display: grid;
+  margin: var(--default-space) 0;
+  height: 60px;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+
+  .heading-1 {
+    font-size: 28px;
+    color: var(--color-black);
+  }
+  .actions { justify-self: end; }
+}
+
+.listings::-webkit-scrollbar,
+.listings::-webkit-scrollbar-thumb {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.listings {
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  & > div.listing {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+}
+
+.listing {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  border-radius: 9px;
+  outline: none;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid var(--color-light-blue-1);
+  }
+
+
+  &__image {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 9px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__description {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  &__heading {
+    grid-row: 1 / 2;
+    display: flex;
+    padding: 5px 20px;
+    align-items: center;
+    .heading-4 { font-size: 22px; }
+    .type { color: var(--color-grey); }
+    .dash { padding: 0 10px; }
+  }
+
+  &__info {
+    grid-row: 2 / 3;
+    padding: 5px 20px;
+    display: flex;
+    align-items: flex-start;
+
+    & > * {
+      padding-left: 10px;
+      color: var(--color-grey);
+    }
+    & > *:first-child { padding-left: 0;}
+    .circle {
+      font-size: 5px;
+      margin-top: 5px;
+    }
+  }
+
+  &__footer {
+    grid-row: 3 / -1;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .price {
+      color: var(--color-light-blue);
+      font-size: 35px;
+      font-weight: 600;
+    }
+    .date { color: var(--color-grey); }
+  }
+}
+
+.detail {
+  background-color: #fff;
+  position: relative;
+  height: 100vh;
+  width: auto;
+  transition: all 0.3s;
+}
+
+.active {border: 2px solid var(--color-light-blue-1); }
+

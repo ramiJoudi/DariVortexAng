@@ -1,0 +1,52 @@
+<div class="search" [ngClass]="animationElement">
+  <label for="search">
+    <svg class="icon icon-search">
+      <use href="./assets/icons.svg#icon-search"></use>
+    </svg>
+  </label>
+  <input
+    id="search"
+    placeholder="Search"
+    type="text"
+    (keydown)="searchListings($event)"
+  />
+</div>
+<div class="listing-actions">
+  <h1 class="heading-1" [ngClass]="animationElement">All Listings</h1>
+  <div class="actions" [ngClass]="animationElement">
+    <span>Filter</span>
+  </div>
+</div>
+<div class="listings" [@elementAnimations]="propertiesList.length">
+  <div
+    class="listing element"
+    *ngFor="let item of propertiesList"
+    [routerLink]="['', { outlets: { detail: ['detail', item.propertyId] } }]"
+    routerLinkActive
+    #routerLink="routerLinkActive"
+    [class.active]="routerLink.isActive"
+    (click)="onNavigate()"
+  >
+    <div class="listing__image">
+      <img src="{{ item.propertyImageUrl }}" alt="image" />
+    </div>
+    <div class="listing__description">
+      <div class="listing__heading">
+        <h4 class="heading-4">{{ item.propertyAddress }}</h4>
+        <span class="dash">&mdash;</span>
+        <span class="type">{{ item.propertyType }}</span>
+      </div>
+      <div class="listing__info">
+        <span>{{ item.numberOfBedrooms }} bedrooms </span>
+        <span class="circle">&#11044;</span>
+        <span>{{ item.numberOfBedrooms }} bathrooms </span>
+        <span class="circle">&#11044;</span>
+        <span>{{ item.squareMeters }}m </span>
+      </div>
+      <div class="listing__footer">
+        <span class="price">${{ item.price }}</span>
+        <span class="date">{{ item.timeAdded }}</span>
+      </div>
+    </div>
+  </div>
+</div>

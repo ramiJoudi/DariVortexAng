@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "real-estate-app"
+    }
+  },
+  "defaultProject": "real-estate-app",
+  "cli": {
+    "analytics": false
+  }
 }
