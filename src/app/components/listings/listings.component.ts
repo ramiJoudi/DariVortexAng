@@ -5,8 +5,6 @@ import {
   elementAnimations,
   ANIMATION_ELEMENT,
 } from 'src/app/animations/elementAnimations';
-import { timer } from 'rxjs';
-import { Property } from 'src/app/models/Property';
 
 @Component({
   selector: 'rl-listings',
@@ -16,18 +14,22 @@ import { Property } from 'src/app/models/Property';
 })
 export class ListingsComponent implements OnInit {
   @HostBinding('@elementAnimations') animate;
-
   animationElement = ANIMATION_ELEMENT;
-  propertiesList: Property[] = [];
+
+  propertiesList = propertiesList;
+
   constructor(public ui: UiService) {}
 
-  ngOnInit(): void {
-    timer(1000).subscribe((_) => {
-      this.propertiesList = propertiesList;
+  ngOnInit(): void {}
+
+  animationDone(event) {
+    (event.element as HTMLDivElement).childNodes.forEach((item) => {
+      const node = item as HTMLDivElement;
+      if (node.classList && node.classList.contains('active')) {
+        node.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   }
-
-  searchListings(event) {}
 
   onNavigate() {
     this.ui.openState.next('open');

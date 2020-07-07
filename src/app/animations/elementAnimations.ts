@@ -10,7 +10,7 @@ import {
 export const ANIMATION_ELEMENT = 'element';
 
 export const elementAnimations = trigger('elementAnimations', [
-  transition(':enter', [
+  transition(':enter, :increment, :decrement', [
     query(
       '.' + ANIMATION_ELEMENT,
       [

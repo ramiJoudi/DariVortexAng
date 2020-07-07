@@ -1,4 +1,25 @@
-  <p [ngClass]="animationElement">{{property?.propertyAddress}}</p>
+<a class="back" (click)="goBack()" #back>
+  <svg class="icon icon-back">
+    <use href="./assets/icons.svg#icon-chevron-small-left"></use>
+  </svg>
+</a>
+<div
+  #image
+  [ngClass]="animationElement"
+  class="info-image"
+  [ngStyle]="(ui.getOpenState() | async) === 'closed' && { display: 'none' }"
+>
+  <img src="{{ property?.propertyImageUrl }}" alt="" />
+</div>
+<div class="property-info" #info [ngClass]="animationElement">
+  <h4 class="heading-4">{{ property.propertyAddress }}</h4>
+  <span class="type">{{ property.propertyType }}</span>
+  <div class="more">
+    <span>{{ property.numberOfBedrooms }} bedrooms </span>
+    <span>{{ property.numberOfBedrooms }} bathrooms </span>
+    <span>{{ property.squareMeters }}m </span>
+  </div>
+  <span class="price">${{ property.price }}</span>
+</div>
 
-  <button (click)="goBack()" [ngClass]="animationElement">go back</button>
-
+<button class="call" #call>Call owner</button>

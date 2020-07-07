@@ -1,12 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  --color-light-1: #e7e7e7;
-  --color-black: #181818;
-  --color-grey: #7e7e7e;
-  --default-space: 20px;
-  --color-light-blue: #3963eede;
-  --color-light-blue-1: #3963ee98;
+  --color-light-1: #f5f6fa;
+  --color-black: #121638;
+  --color-grey: #858b93;
+  --color-light-blue: #5175fb;
+  --color-red: #e14a4a;
+  --layout-margin: 0 10px 25px 10px;
+  --default-shadow: rgba(142, 142, 142, 0.1);
 }
 
 *,
@@ -21,7 +22,7 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
   box-sizing: inherit;
   position: relative;
   background-color: var(--color-light-1);
@@ -44,16 +45,16 @@ body {
   position: relative;
   height: 100vh;
   display: grid;
-  grid-template-rows: 100px 1fr 200px;
+  grid-template-rows: 100px repeat(3, 1fr) 200px;
+  grid-row-gap: 10px;
 
   .logo {
     align-self: center;
     grid-row: 1 / 2;
-    justify-self: center;
+    justify-self: start;
+    margin-left: 15px;
 
     h3 {
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
       font-size: 16px;
       color: var(--color-light-blue);
     }
@@ -63,9 +64,9 @@ body {
     width: inherit;
     list-style: none;
     display: grid;
-    grid-template-rows: repeat(auto-fit, minmax(75px, min-content));
     grid-row-gap: 15px;
     align-items: center;
+    grid-row: 2 / 3;
 
     &__item {
       justify-self: stretch;
@@ -75,11 +76,17 @@ body {
       outline: none;
       border-radius: 9px;
       cursor: pointer;
-      transition: all .2s;
+      transition: all 0.2s;
 
-      &:hover { background-color: rgba(47, 105, 230, 0.178); }
-      &:hover > .icon { fill: var(--color-light-blue-1); }
-      &:hover > .icon + .nav__link { color: var(--color-black); }
+      &:hover {
+        background-color: rgba(47, 105, 230, 0.178);
+      }
+      &:hover > .icon {
+        fill: var(--color-light-blue);
+      }
+      &:hover > .icon + .nav__link {
+        color: var(--color-black);
+      }
 
       .icon {
         margin-left: 10px;
@@ -87,9 +94,15 @@ body {
       }
     }
 
-    &__item.menu-active { background-color: rgba(47, 105, 230, 0.178) }
-    &__item.menu-active > .icon { fill: var(--color-light-blue-1); }
-    &__item.menu-active > .icon + .nav__link { color: var(--color-black); }
+    &__item.menu-active {
+      background-color: rgba(47, 105, 230, 0.178);
+    }
+    &__item.menu-active > .icon {
+      fill: var(--color-light-blue);
+    }
+    &__item.menu-active > .icon + .nav__link {
+      color: var(--color-black);
+    }
 
     &__link,
     &__link:link,
@@ -100,11 +113,130 @@ body {
       color: var(--color-grey);
     }
   }
+
+  .ad {
+    position: relative;
+    margin: 0 15px 20px 15px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px var(--default-shadow);
+    padding: 15px;
+    height: 200px;
+    grid-row: 4 / -1;
+
+    h2 {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+    .icon-up-arrow {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+    }
+  }
 }
 
 .user {
   position: absolute;
-  right: 0;
+  right: 2%;
+  top: 2%;
+  display: grid;
+  z-index: 200;
+  grid-template-columns: min-content repeat(2, 1fr) min-content;
+  grid-template-rows: repeat(2, 30px);
+  align-items: center;
+  grid-column-gap: 25px;
+  grid-row-gap: 5px;
+
+  &__info {
+    position: relative;
+    grid-row: 1 / -1;
+    grid-column: 2 / 4;
+    display: flex;
+    align-items: center;
+
+    .circle-avatar {
+      position: relative;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #fff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        border: 2px solid var(--color-red);
+      }
+    }
+
+    .user-name {
+      margin-left: 15px;
+    }
+  }
+
+  .notification {
+    position: relative;
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+
+    .icon-bell {
+      fill: var(--color-grey);
+      z-index: -1;
+      position: relative;
+    }
+
+    &__circle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-red);
+      border-radius: 50%;
+      left: 13px;
+      top: 4px;
+      opacity: 0;
+    }
+
+    &__circle.circle-active {
+      opacity: 1;
+    }
+    &__circle.circle-active::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background-color: #fff;
+      border-radius: 50%;
+      right: 10%;
+      top: 10%;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .dropdown {
+    grid-column: 4 / -1;
+    grid-row: 1 / -1;
+  }
 }
 
 rl-listings {
@@ -117,8 +249,11 @@ rl-listings {
 .search {
   display: grid;
   position: relative;
-  margin: var(--default-space) 0;
+  margin: var(--layout-margin);
   height: 60px;
+  margin-top: 20px;
+  transition: all 0.3s;
+  width: 77%;
 
   input {
     display: block;
@@ -142,23 +277,27 @@ rl-listings {
 
   input::-webkit-input-placeholder {
     color: var(--color-grey);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 17px;
   }
 }
 
 .listing-actions {
   display: grid;
-  margin: var(--default-space) 0;
+  margin: var(--layout-margin);
   height: 60px;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
+  width: 77%;
+  transition: all 0.3s;
 
   .heading-1 {
     font-size: 28px;
     color: var(--color-black);
   }
-  .actions { justify-self: end; }
+  .actions {
+    justify-self: end;
+  }
 }
 
 .listings::-webkit-scrollbar,
@@ -174,8 +313,8 @@ rl-listings {
 
   & > div.listing {
     background-color: #fff;
-    padding: 20px;
-    margin-bottom: 15px;
+    padding: 25px;
+    margin: var(--layout-margin);
   }
 }
 
@@ -187,15 +326,15 @@ rl-listings {
   border: 2px solid transparent;
   transition: all 0.3s;
   cursor: pointer;
+  box-shadow: 0 10px 15px var(--default-shadow);
 
   &:hover {
-    border: 2px solid var(--color-light-blue-1);
+    border: 2px solid var(--color-light-blue);
   }
 
-
   &__image {
-    width: 300px;
-    height: 200px;
+    width: 250px;
+    height: 170px;
     overflow: hidden;
     border-radius: 9px;
 
@@ -217,9 +356,17 @@ rl-listings {
     display: flex;
     padding: 5px 20px;
     align-items: center;
-    .heading-4 { font-size: 22px; }
-    .type { color: var(--color-grey); }
-    .dash { padding: 0 10px; }
+
+    .heading-4 {
+      font-size: 22px;
+      color: var(--color-black);
+    }
+    .type {
+      color: var(--color-grey);
+    }
+    .dash {
+      padding: 0 10px;
+    }
   }
 
   &__info {
@@ -232,7 +379,9 @@ rl-listings {
       padding-left: 10px;
       color: var(--color-grey);
     }
-    & > *:first-child { padding-left: 0;}
+    & > *:first-child {
+      padding-left: 0;
+    }
     .circle {
       font-size: 5px;
       margin-top: 5px;
@@ -249,9 +398,11 @@ rl-listings {
     .price {
       color: var(--color-light-blue);
       font-size: 35px;
-      font-weight: 600;
+      font-weight: 700;
     }
-    .date { color: var(--color-grey); }
+    .date {
+      color: var(--color-grey);
+    }
   }
 }
 
@@ -259,9 +410,14 @@ rl-listings {
   background-color: #fff;
   position: relative;
   height: 100vh;
-  width: auto;
+  width: 0%;
   transition: all 0.3s;
+  display: grid;
+  grid-template-rows: 120px repeat(6, 1fr);
+  grid-template-columns: repeat(8, 1fr);
+  grid-row-gap: 10px;
 }
 
-.active {border: 2px solid var(--color-light-blue-1); }
-
+.active {
+  border: 2px solid var(--color-light-blue);
+}
