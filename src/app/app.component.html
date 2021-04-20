@@ -1,0 +1,53 @@
+<div class="main">
+  <div class="user" #user>
+    <div class="notification">
+      <svg class="icon icon-bell">
+        <use href="./assets/icons.svg#icon-bell"></use>
+      </svg>
+      <span class="notification__circle circle-active"></span>
+    </div>
+    <div class="user__info">
+      <div class="circle-avatar">
+        <img src="./assets/images/illustration.jpg" alt="" />
+      </div>
+      <div class="user-name">David O.</div>
+    </div>
+    <div class="dropdown">
+      <svg class="icon icon-down">
+        <use href="./assets/icons.svg#icon-chevron-small-down"></use>
+      </svg>
+    </div>
+  </div>
+  <nav class="navigation">
+    <div class="logo" #logo>
+      <h3>Site logo.</h3>
+    </div>
+    <ul class="nav" #nav>
+      <li
+        class="nav__item"
+        *ngFor="let menu of menuList"
+        [routerLink]="menu.link"
+        (click)="onNavigate(menu.link)"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive
+        #routerLink="routerLinkActive"
+        [class.menu-active]="routerLink.isActive"
+      >
+        <svg class="icon {{ menu.icon }}">
+          <use attr.xlink:href="./assets/icons.svg#{{ menu.icon }}"></use>
+        </svg>
+        <a class="nav__link">{{ menu.name }}</a>
+      </li>
+    </ul>
+    <div class="ad" #ad>
+      <h2 class="heading-2"><span>Upgrade to</span><span>PRO account</span></h2>
+      <svg class="icon icon-up-arrow">
+        <use href="./assets/icons.svg#icon-arrow-up-right"></use>
+      </svg>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+  <div class="detail" [@detailPage]="openState">
+    <router-outlet name="d"></router-outlet>
+  </div>
+</div>
