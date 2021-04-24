@@ -23,6 +23,11 @@ import { gsap } from 'gsap';
   animations: [elementAnimations],
 })
 export class DetailComponent implements OnInit, AfterViewInit {
+  constructor(
+    public route: ActivatedRoute,
+    private router: Router,
+    public ui: UiService
+  ) {}
   @HostBinding('@elementAnimations')
   id: number;
 
@@ -33,17 +38,13 @@ export class DetailComponent implements OnInit, AfterViewInit {
   @ViewChild('call', { static: true }) call: ElementRef<HTMLButtonElement>;
 
   property: Property;
-  constructor(
-    public route: ActivatedRoute,
-    private router: Router,
-    public ui: UiService
-  ) {}
+  ap: string;
 
   ngOnInit(): void {
     this.initDetailAnimations();
     this.route.params.subscribe((params: Params) => {
-      if (params['id']) {
-        this.id = parseInt(params['id'], 10);
+      if (params.id) {
+        this.id = parseInt(params.id, 10);
         this.property = propertiesList.find((p) => p.propertyId === this.id);
       }
     });
