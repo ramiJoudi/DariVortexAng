@@ -10,7 +10,6 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { UiService } from 'src/app/services/ui.service';
 import { Property } from 'src/app/models/Property';
 import { propertiesList } from 'src/app/helpers/propertiesList';
-
 import  {HttpClient} from '@angular/common/http';
 import {
   elementAnimations,
