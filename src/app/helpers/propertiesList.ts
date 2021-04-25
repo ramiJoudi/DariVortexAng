@@ -5,7 +5,7 @@ export const propertiesList: Property[] = [
   {
     propertyId: 1,
     propertyType: 'Townhouse',
-    propertyAddress: '4 Mercer St',
+    propertyAddress: 'Ghazela,ariana',
     propertyImageUrl: './assets/images/house-6.jpg',
     price: 678.1,
     timeAdded: moment(
@@ -18,7 +18,7 @@ export const propertiesList: Property[] = [
   {
     propertyId: 2,
     propertyType: 'Apartment',
-    propertyAddress: '304a Poplar Hight St',
+    propertyAddress: 'Ariana',
     propertyImageUrl: './assets/images/house-7.jpg',
     price: 540.145,
     timeAdded: moment(
@@ -31,7 +31,7 @@ export const propertiesList: Property[] = [
   {
     propertyId: 3,
     propertyType: 'Apartment',
-    propertyAddress: "5-10 St. Martin's PI",
+    propertyAddress: 'Marsa',
     propertyImageUrl: './assets/images/house-3.jpeg',
     price: 235.25,
     timeAdded: moment(new Date()).fromNow(),
@@ -42,7 +42,7 @@ export const propertiesList: Property[] = [
   {
     propertyId: 4,
     propertyType: 'House',
-  propertyAddress: "16-2 Queen Anne's Gate",
+  propertyAddress: 'Bardo',
     propertyImageUrl: './assets/images/house-4.jpeg',
     price: 789.25,
     timeAdded: moment(new Date()).fromNow(),
@@ -53,7 +53,7 @@ export const propertiesList: Property[] = [
   {
     propertyId: 5,
     propertyType: 'Apartment',
-  propertyAddress: "204a Dartmouth St",
+  propertyAddress: 'Manar',
     propertyImageUrl: './assets/images/house-5.jpeg',
     price: 432.23,
     timeAdded: moment(new Date()).fromNow(),

@@ -8,15 +8,17 @@
       <use href="./assets/icons.svg#icon-search"></use>
     </svg>
   </label>
-  <input id="search" placeholder="Search" type="text" />
+  <input id="search" placeholder="Location"  [(ngModel)]="fg" type="text" />
+
 </div>
 <div
   class="listing-actions"
   [ngStyle]="(ui.getOpenState() | async) === 'open' && { width: '96%' }"
 >
-  <h1 class="heading-1" [ngClass]="animationElement">All Listings</h1>
+
+
   <div class="actions" [ngClass]="animationElement">
-    <span>Filter</span>
+
   </div>
 </div>
 <div
@@ -26,7 +28,7 @@
 >
   <div
     class="listing element"
-    *ngFor="let item of propertiesList"
+    *ngFor="let item of propertiesList |filter:fg"
     [routerLink]="['', { outlets: { d: ['detail', item.propertyId] } }]"
     routerLinkActive
     #routerLink="routerLinkActive"

@@ -10,11 +10,14 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { UiService } from 'src/app/services/ui.service';
 import { Property } from 'src/app/models/Property';
 import { propertiesList } from 'src/app/helpers/propertiesList';
+
+import  {HttpClient} from '@angular/common/http';
 import {
   elementAnimations,
   ANIMATION_ELEMENT,
 } from 'src/app/animations/elementAnimations';
 import { gsap } from 'gsap';
+import {SearchBuyRentService} from '../../search-buy-rent.service';
 
 @Component({
   selector: 'rl-detail',
@@ -23,8 +26,16 @@ import { gsap } from 'gsap';
   animations: [elementAnimations],
 })
 export class DetailComponent implements OnInit, AfterViewInit {
+  constructor(
+    public route: ActivatedRoute,
+    private router: Router,
+    public ui: UiService ,
+    private services: SearchBuyRentService,
+    private  http: HttpClient
+  ) {}
   @HostBinding('@elementAnimations')
   id: number;
+
 
   animationElement = ANIMATION_ELEMENT;
   @ViewChild('info', { static: true }) info: ElementRef<HTMLDivElement>;
@@ -33,21 +44,52 @@ export class DetailComponent implements OnInit, AfterViewInit {
   @ViewChild('call', { static: true }) call: ElementRef<HTMLButtonElement>;
 
   property: Property;
-  constructor(
-    public route: ActivatedRoute,
-    private router: Router,
-    public ui: UiService
-  ) {}
+
+  url = 'http://localhost:8090';
+  tg = false ;
 
   ngOnInit(): void {
     this.initDetailAnimations();
     this.route.params.subscribe((params: Params) => {
-      if (params['id']) {
-        this.id = parseInt(params['id'], 10);
+      if (params.id) {
+        this.id = parseInt(params.id, 10);
         this.property = propertiesList.find((p) => p.propertyId === this.id);
       }
     });
+
+
   }
+
+  rayM() {
+    console.log(this.property.propertyId);
+    const req = this.services.Payment(this.property.propertyId);
+    req.subscribe((data: any) => {
+      console.log(data);
+      this.router.navigate([data.redirect_url]);
+
+    });
+
+
+  }
+    makePayment(sum) {
+
+
+    return this.http.post(this.url + 'paypal/make/payment?sum=' + sum, {})
+        .subscribe((response: Response) => {
+
+          response.json();
+
+          alert(response.json());
+
+
+
+
+        });
+    }
+
+
+
+
 
   initDetailAnimations() {
     gsap.from(this.back.nativeElement, {
@@ -81,6 +123,9 @@ export class DetailComponent implements OnInit, AfterViewInit {
     if (this.router.isActive(this.router.url, true)) {
       this.ui.openState.next('open');
     }
+  }
+  toggle(){
+    this.router.navigate(['/form']);
   }
 
   goBack() {

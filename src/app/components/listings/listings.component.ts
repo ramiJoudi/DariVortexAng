@@ -5,7 +5,16 @@ import {
   elementAnimations,
   ANIMATION_ELEMENT,
 } from 'src/app/animations/elementAnimations';
+import {SearchBuyRentService} from '../../search-buy-rent.service';
+import {Property} from '../../models/Property';
 
+interface  Sate{
+  status: number;
+  location: string;
+  purchasing_price: number;
+  buy: true ;
+  rent: false;
+}
 @Component({
   selector: 'rl-listings',
   templateUrl: './listings.component.html',
@@ -13,14 +22,26 @@ import {
   animations: [elementAnimations],
 })
 export class ListingsComponent implements OnInit {
+  constructor(private  http: SearchBuyRentService, public ui: UiService , private service: SearchBuyRentService) {}
   @HostBinding('@elementAnimations') animate;
   animationElement = ANIMATION_ELEMENT;
 
   propertiesList = propertiesList;
+  loc: Property;
+state: any;
 
-  constructor(public ui: UiService) {}
+  fg  = '';
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const resp = this.service.search(this.loc.propertyAddress);
+    resp.subscribe((data: string) => this.loc.propertyAddress = data);
+
+
+  }
+
+
+
+
 
   animationDone(event) {
     (event.element as HTMLDivElement).childNodes.forEach((item) => {
