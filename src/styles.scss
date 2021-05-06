@@ -64,7 +64,7 @@ body {
     width: inherit;
     list-style: none;
     display: grid;
-    grid-row-gap: 15px;
+    grid-row-gap: 1px;
     align-items: center;
     grid-row: 2 / 3;
 
@@ -78,9 +78,7 @@ body {
       cursor: pointer;
       transition: all 0.2s;
 
-      &:hover {
-        background-color: rgba(47, 105, 230, 0.178);
-      }
+
       &:hover > .icon {
         fill: var(--color-light-blue);
       }
@@ -95,7 +93,7 @@ body {
     }
 
     &__item.menu-active {
-      background-color: rgba(47, 105, 230, 0.178);
+    //  background-color: rgba(47, 105, 230, 0.178);
     }
     &__item.menu-active > .icon {
       fill: var(--color-light-blue);
@@ -104,25 +102,19 @@ body {
       color: var(--color-black);
     }
 
-    &__link,
-    &__link:link,
-    &__link:visited {
-      margin-left: 15px;
-      font-size: 18px;
-      text-decoration: none;
-      color: var(--color-grey);
-    }
+
   }
 
   .ad {
-    position: relative;
-    margin: 0 15px 20px 15px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 10px 15px var(--default-shadow);
-    padding: 15px;
-    height: 200px;
-    grid-row: 4 / -1;
+   // position: relative;
+    //margin: 0 15px 20px 15px;
+    //background: #fff;
+   // border-radius: 20px;
+    //box-shadow: 0 10px 15px var(--default-shadow);
+    //padding: 15px;
+    //height: 200px;
+    //grid-row: 4 / -1;
+
 
     h2 {
       display: flex;
@@ -418,6 +410,6 @@ rl-listings {
   grid-row-gap: 10px;
 }
 
-.active {
-  border: 2px solid var(--color-light-blue);
-}
+//.active {
+  //border: 2px solid var(--color-light-blue);
+//}

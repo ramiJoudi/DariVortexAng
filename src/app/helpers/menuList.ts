@@ -2,33 +2,21 @@ import { Menu } from '../models/Menu';
 
 export const menuList: Menu[] = [
   {
-    name: 'Dashboard',
-    link: '/',
-    icon: 'icon-grid',
-  },
-  {
-    name: 'Data',
-    link: '/data',
-    icon: 'icon-circular-graph',
-  },
-  {
-    name: 'Listings',
+    name: '',
     link: '/listings',
-    icon: 'icon-list',
+    icon: '',
   },
-  {
-    name: 'Clients',
-    link: '/clients',
-    icon: 'icon-user',
-  },
-  {
-    name: 'Bills',
-    link: '/bills',
-    icon: 'icon-text-document',
-  },
-  {
-    name: 'Settings',
-    link: '/settings',
-    icon: 'icon-cog',
-  },
+  // {
+  //  name: 'Dashboard',
+  //  link: '/',
+  //  icon: 'icon-grid',
+ // },
+
+
+ // {
+   // name: 'Clients',
+ //   link: '/clients',
+ //   icon: 'icon-user',
+ // },
+
 ];

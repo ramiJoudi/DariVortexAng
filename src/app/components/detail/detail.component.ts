@@ -10,7 +10,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { UiService } from 'src/app/services/ui.service';
 import { Property } from 'src/app/models/Property';
 import { propertiesList } from 'src/app/helpers/propertiesList';
-import  {HttpClient} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {
   elementAnimations,
   ANIMATION_ELEMENT,
@@ -30,7 +30,8 @@ export class DetailComponent implements OnInit, AfterViewInit {
     private router: Router,
     public ui: UiService ,
     private services: SearchBuyRentService,
-    private  http: HttpClient
+    private  http: HttpClient ,
+
   ) {}
   @HostBinding('@elementAnimations')
   id: number;

@@ -12,6 +12,7 @@ import {FormsModule} from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import {NgxPayPalModule} from 'ngx-paypal';
+import { AvatarModule } from 'ngx-avatar';
 @NgModule({
   declarations: [AppComponent, DetailComponent, ListingsComponent, FormulaireComponent ],
   imports: [BrowserModule,
@@ -21,7 +22,8 @@ import {NgxPayPalModule} from 'ngx-paypal';
     HttpClientModule ,
     FormsModule ,
     NoopAnimationsModule,
-    NgxPayPalModule],
+    NgxPayPalModule,
+    AvatarModule],
   providers: [SearchBuyRentService],
   bootstrap: [AppComponent],
 })

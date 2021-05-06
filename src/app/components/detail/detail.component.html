@@ -34,9 +34,10 @@
 <span class="price">${{ property.price }}</span>
   <ul class="list-group">
    <div>
+     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
      <button type="button" class="call" #call   (click) ="toggle()" >Buy</button>
-     <p></p>
     <button type="button" class="call"    (click) ="makePayment(property.price)"  >Rent</button>
+     </div>
    </div>
   </ul>
 

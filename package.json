@@ -25,6 +25,7 @@
     "gsap": "^3.3.4",
     "moment": "^2.27.0",
     "ng2-search-filter": "^0.5.1",
+    "ngx-avatar": "^4.1.0",
     "ngx-paypal": "^7.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^2.0.0",

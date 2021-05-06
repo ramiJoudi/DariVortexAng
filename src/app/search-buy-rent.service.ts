@@ -1,14 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Property} from "./models/Property";
+import {Property} from './models/Property';
 
-interface  Sate{
-  status: number,
-  location:string,
-  purchasing_price: number,
-  buy: true ,
-  rent: false
-}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,5 +19,7 @@ export class SearchBuyRentService {
     return this.http.post('http://localhost:8090/paypal/makepay/', propertyId);
 
   }
-
+public doRegistration(deposit){
+  return this.http.post('http://localhost:8090/deposit/addeposit', deposit, {responseType: 'text' as 'json'});
+}
 }

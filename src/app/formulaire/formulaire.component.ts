@@ -3,6 +3,9 @@ import {AppComponent} from 'src/app/app.component';
 import {} from 'src/app/components/detail/detail.component';
 import {ICreateOrderRequest, IPayPalConfig} from 'ngx-paypal';
 import {} from 'src/app/helpers/propertiesList';
+import {SearchBuyRentService} from '../search-buy-rent.service';
+import {HttpClient} from '@angular/common/http';
+import {Deposit} from '../deposit';
 @Component({
   selector: 'rl-formulaire',
   templateUrl: './formulaire.component.html',
@@ -10,10 +13,49 @@ import {} from 'src/app/helpers/propertiesList';
 })
 export class FormulaireComponent implements OnInit {
   openState: AppComponent;
+  deposit: Deposit;
+
 
   public payPalConfig ?: IPayPalConfig;
 
-  constructor() { }
+  constructor(private  paiment: SearchBuyRentService, private httpClient: HttpClient, private service: SearchBuyRentService) { }
+  selectedFile: File;
+  message: string;
+  imageName: any;
+  m: any;
+
+  public registerNow(){
+    const resp = this.service.doRegistration(this.deposit);
+    resp.subscribe((data) => this.m = data);
+
+
+  }
+
+  public onFileChanged(event) {
+
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload() {
+    console.log(this.selectedFile);
+
+
+    const uploadImageData = new FormData();
+    uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+
+
+    this.httpClient.post('http://localhost:8090/deposit/upload', uploadImageData, { observe: 'response' })
+      .subscribe((response) => {
+          if (response.status === 200) {
+            this.message = 'Image uploaded successfully';
+          } else {
+            this.message = 'Image not uploaded successfully';
+          }
+        }
+      );
+
+
+  }
 
   ngOnInit(): void {
     this.initConfig();
@@ -28,11 +70,11 @@ export class FormulaireComponent implements OnInit {
         purchase_units: [{
           amount: {
             currency_code: 'EUR',
-            value: '9.99',
+            value: '678.1',
             breakdown: {
               item_total: {
                 currency_code: 'EUR',
-                value: '9.99'
+                value: '678.1'
               }
             }
           },
@@ -42,7 +84,7 @@ export class FormulaireComponent implements OnInit {
             category: 'DIGITAL_GOODS',
             unit_amount: {
               currency_code: 'EUR',
-              value: '9.99',
+              value: '678.1',
             },
           }]
         }]
