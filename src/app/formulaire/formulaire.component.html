@@ -10,12 +10,12 @@
 
           <div class="form-group">
             <label ><span class="req"> </span> phoneNumber: </label>
-            <input class="form-control" type="text"  name="phoneNumber"  required placeholder="Enter your phoneNumber" />
+            <input class="form-control" type="text" [(ngModel)] ="deposit.phoneNumber"  name="phoneNumber"  required placeholder="Enter your phoneNumber" />
           </div>
 
           <div class="form-group">
             <label ><span class="req"> </span> Address email : </label>
-            <input class="form-control" type="email"  name="addressMail"  required placeholder="name@example.com" />
+            <input class="form-control" type="email" [(ngModel)] ="deposit.addressMail" name="addressMail"  required placeholder="name@example.com" />
           </div>
 
 
@@ -25,7 +25,7 @@
             <label ><span class="req"> </span> Payslips: </label>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <input type="file" class="form-control-file"  (change)="onFileChanged($event)"  name="Payslips"/>
-              <input class="btn btn-warning" type="button"   (click)="onUpload()" value="upload">
+
             </div>
           </div>
 
@@ -33,7 +33,7 @@
             <label ><span class="req"> </span> Engagement letter: </label>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <input type="file" class="form-control-file" (change)="onFileChanged($event)"  name="Engagement letter"/>
-            <input class="btn btn-warning" type="button"  (click)="onUpload()" value="upload">
+
             </div>
           </div>
 
@@ -41,14 +41,14 @@
             <label ><span class="req"> </span> Justification of payment: </label>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <input type="file" class="form-control-file" (change)="onFileChanged($event)" name="Justification of payment"/>
-            <input class="btn btn-warning" type="button" (click)="onUpload()" value="upload">
+            
             </div>
           </div>
 
 
 
           <div class="form-group">
-            <input class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="registerNow()">
+            <input class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="onUpload()">
             <p></p>
             <div class="col-md-4">
             <ngx-paypal [config]="payPalConfig"></ngx-paypal>

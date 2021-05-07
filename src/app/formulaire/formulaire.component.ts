@@ -18,7 +18,9 @@ export class FormulaireComponent implements OnInit {
 
   public payPalConfig ?: IPayPalConfig;
 
-  constructor(private  paiment: SearchBuyRentService, private httpClient: HttpClient, private service: SearchBuyRentService) { }
+  constructor(private  paiment: SearchBuyRentService, private httpClient: HttpClient, private service: SearchBuyRentService) {
+    this.deposit = new Deposit();
+  }
   selectedFile: File;
   message: string;
   imageName: any;
@@ -41,13 +43,21 @@ export class FormulaireComponent implements OnInit {
 
 
     const uploadImageData = new FormData();
-    uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-
+    uploadImageData.append('imageFile1', this.selectedFile, this.selectedFile.name);
+    uploadImageData.append('imageFile2', this.selectedFile, this.selectedFile.name);
+    uploadImageData.append('imageFile3', this.selectedFile, this.selectedFile.name);
 
     this.httpClient.post('http://localhost:8090/deposit/upload', uploadImageData, { observe: 'response' })
       .subscribe((response) => {
           if (response.status === 200) {
             this.message = 'Image uploaded successfully';
+
+            // tslint:disable-next-line
+            return this.httpClient.post('http://localhost:8090/deposit/addeposit', this.deposit, {responseType: 'text' as 'json'}).subscribe(resp =>
+              {
+              alert("success");
+            });
+
           } else {
             this.message = 'Image not uploaded successfully';
           }
@@ -55,6 +65,9 @@ export class FormulaireComponent implements OnInit {
       );
 
 
+  }
+  public doRegistration(deposit){
+    return this.httpClient.post('http://localhost:8090/deposit/addeposit', deposit, {responseType: 'text' as 'json'});
   }
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
-export interface Deposit {
+export class Deposit {
 
 
-  PhoneNumber: string ;
+  phoneNumber: string ;
   addressMail: string ;
   imageFile1: File ;
   imageFile2: File;
