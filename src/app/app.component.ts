@@ -119,4 +119,5 @@ export class AppComponent implements OnInit, OnDestroy {
     this.destroyed$.next();
     this.destroyed$.complete();
   }
+
 }

@@ -127,6 +127,9 @@ export class DetailComponent implements OnInit, AfterViewInit {
   toggle(){
     this.router.navigate(['/form']);
   }
+  tog(){
+    this.router.navigate(['/contract']);
+  }
 
   goBack() {
     this.router.navigateByUrl('listings');

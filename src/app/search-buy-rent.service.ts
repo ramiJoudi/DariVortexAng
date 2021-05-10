@@ -22,4 +22,7 @@ export class SearchBuyRentService {
 public doRegistration(deposit){
   return this.http.post('http://localhost:8090/deposit/addeposit', deposit, {responseType: 'text' as 'json'});
 }
+  public getDeposit(){
+    return this.http.get('http://localhost:8090/deposit/deposit');
+  }
 }

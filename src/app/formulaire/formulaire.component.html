@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6">
 
-      <form id="monForm">
+      <form>
         <fieldset>
 
           <legend class="text-center"><h1>Deposit guarantee</h1><span class="req"><small>
@@ -41,7 +41,7 @@
             <label ><span class="req"> </span> Justification of payment: </label>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <input type="file" class="form-control-file" (change)="onFileChanged($event)" name="Justification of payment"/>
-            
+
             </div>
           </div>
 
@@ -51,7 +51,7 @@
             <input class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="onUpload()">
             <p></p>
             <div class="col-md-4">
-            <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+            <ngx-paypal [config]="payPalConfig" ></ngx-paypal>
             </div>
             <p></p>
             <p></p>

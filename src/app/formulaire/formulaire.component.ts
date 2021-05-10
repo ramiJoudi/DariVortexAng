@@ -55,7 +55,7 @@ export class FormulaireComponent implements OnInit {
             // tslint:disable-next-line
             return this.httpClient.post('http://localhost:8090/deposit/addeposit', this.deposit, {responseType: 'text' as 'json'}).subscribe(resp =>
               {
-              alert("success");
+              alert('success');
             });
 
           } else {

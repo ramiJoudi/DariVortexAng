@@ -13,8 +13,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import {NgxPayPalModule} from 'ngx-paypal';
 import { AvatarModule } from 'ngx-avatar';
+import { HistoricalComponent } from './historical/historical.component';
+import { ContractComponent } from './contract/contract.component';
 @NgModule({
-  declarations: [AppComponent, DetailComponent, ListingsComponent, FormulaireComponent ],
+  declarations: [AppComponent, DetailComponent, ListingsComponent, FormulaireComponent, HistoricalComponent, ContractComponent ],
   imports: [BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

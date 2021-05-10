@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { DetailComponent } from './components/detail/detail.component';
 import { ListingsComponent } from './components/listings/listings.component';
 import {FormulaireComponent} from './formulaire/formulaire.component';
+import {HistoricalComponent} from './historical/historical.component';
+import {ContractComponent} from "./contract/contract.component";
 
 const routes: Routes = [
   {
@@ -13,6 +15,14 @@ const routes: Routes = [
   {
     path: 'form',
     component: FormulaireComponent
+  },
+  {
+    path: 'historical',
+    component: HistoricalComponent
+  },
+  {
+    path: 'contract',
+    component: ContractComponent
   },
   {
     path: 'detail/:id',
