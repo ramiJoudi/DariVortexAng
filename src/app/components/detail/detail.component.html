@@ -35,9 +35,9 @@
   <ul class="list-group">
    <div>
      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-     <button type="button" class="call" #call   (click) ="toggle()" >Buy</button>
+     <button type="button" class="call" #call  [disabled]="property.buy" (click) ="toggle()" >Buy</button>
 
-    <button type="button" class="call"    (click) ="tog()"  >Rent</button>
+    <button type="button" class="call"  [disabled]="property.rent"  (click) ="tog()"  >Rent</button>
      </div>
    </div>
   </ul>

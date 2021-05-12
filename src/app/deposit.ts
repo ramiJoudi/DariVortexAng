@@ -3,8 +3,8 @@ export class Deposit {
 
   phoneNumber: string ;
   addressMail: string ;
-  imageFile1: File ;
-  imageFile2: File;
-  imageFile3: File;
+  imageFile1: any ;
+  imageFile2: any;
+  imageFile3: any;
 
 }

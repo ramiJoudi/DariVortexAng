@@ -32,12 +32,14 @@
 
         <td>{{deposit.phoneNumber}}</td>
         <td>{{deposit.addressMail}}</td>
-        <td><img [src]=" deposit.imageFile1" style="width: 50px"></td>
-        <td><img [src]="deposit.imageFile2" style="width: 50px"></td>
-        <td><img [src]="deposit.imageFile3" style="width: 50px"></td>
+        <td><img [src]='"data:image/jpeg;base64,"+deposit.el' style="width: 50px"></td>
+        <td><img [src]='"data:image/jpeg;base64,"+deposit.jc' style="width: 50px"></td>
+        <td><img [src]='"data:image/jpeg;base64,"+deposit.payslips' style="width: 50px"></td>
         <td>
           <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-          <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+          <button type="" class="btn btn-danger" value="Delete" (click)="deletebyid(deposit.id)">
+            delete
+          </button>
         </td>
       </tr>
 
@@ -101,7 +103,7 @@
         </div>
         <div class="modal-footer">
           <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-          <input type="submit" class="btn btn-danger" value="Delete">
+          <input type="submit" class="btn btn-danger" value="Delete" >
         </div>
       </form>
     </div>

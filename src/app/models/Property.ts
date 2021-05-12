@@ -8,6 +8,8 @@ export interface Property {
   numberOfBedrooms: number;
   numberOfBathrooms: number;
   squareMeters: number;
+  buy: boolean;
+  rent: boolean;
 
 
 }

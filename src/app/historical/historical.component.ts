@@ -14,6 +14,12 @@ export class HistoricalComponent implements OnInit {
   ngOnInit(){
     const resp = this.service.getDeposit();
     resp.subscribe((data) => this.dg = data);
+
+  }
+
+  deletebyid(id){
+    this.service.deletebyid(id).subscribe(res => this.ngOnInit());
+    window.location.reload();
   }
 
 

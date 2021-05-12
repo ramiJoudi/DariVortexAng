@@ -14,6 +14,8 @@ export const propertiesList: Property[] = [
     numberOfBathrooms: 2,
     numberOfBedrooms: 2,
     squareMeters: 240,
+    buy: true,
+    rent: false,
   },
   {
     propertyId: 2,
@@ -27,6 +29,8 @@ export const propertiesList: Property[] = [
     numberOfBathrooms: 1,
     numberOfBedrooms: 2,
     squareMeters: 163,
+    buy: false,
+    rent: true,
   },
   {
     propertyId: 3,
@@ -38,6 +42,8 @@ export const propertiesList: Property[] = [
     numberOfBathrooms: 1,
     numberOfBedrooms: 1,
     squareMeters: 88,
+    buy: true,
+    rent: false,
   },
   {
     propertyId: 4,
@@ -49,6 +55,8 @@ export const propertiesList: Property[] = [
     numberOfBathrooms: 2,
     numberOfBedrooms: 3,
     squareMeters: 371,
+    buy: false,
+    rent: true,
   },
   {
     propertyId: 5,
@@ -60,5 +68,7 @@ export const propertiesList: Property[] = [
     numberOfBathrooms: 1,
     numberOfBedrooms: 3,
     squareMeters: 223,
+    buy: true,
+    rent: false,
   },
 ];

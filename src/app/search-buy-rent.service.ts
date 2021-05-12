@@ -25,4 +25,8 @@ public doRegistration(deposit){
   public getDeposit(){
     return this.http.get('http://localhost:8090/deposit/deposit');
   }
+
+  public deletebyid(id: number){
+    return this.http.delete('http://localhost:8090/deposit/delete/' + id);
+  }
 }
