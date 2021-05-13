@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "~bootstrap/dist/css/bootstrap.css";
 :root {
   --color-light-1: #f5f6fa;
   --color-black: #121638;
@@ -418,6 +419,6 @@ rl-listings {
   grid-row-gap: 10px;
 }
 
-.active {
-  border: 2px solid var(--color-light-blue);
-}
+ 
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

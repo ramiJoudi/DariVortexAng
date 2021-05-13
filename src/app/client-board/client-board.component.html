@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a href="#" class="navbar-brand">
+    <img src="../../assets/city.png" style="width: 50px;"> DARI VORTEX
+  </a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav">
+        <a routerLink="/listings" routerLinkActive="active" class="nav-item nav-link active">Home</a>
+        <a routerLink="/listings" routerLinkActive="active" class="nav-item nav-link active">listings</a>
+        <a routerLink="/ClaimCustm" routerLinkActive="active" class="nav-item nav-link active">Make a claim</a>
+        <a routerLink="/settings" routerLinkActive="active" class="nav-item nav-link active">Settings</a>
+ 
+      </div>
+      <div class="navbar-nav ml-auto">
+     
+        <div class="user" #user>
+
+          <div class="user__info">
+            <div class="action" style="top: 10px;">
+              <div class="profile" (click)="menuToggle()">
+                <ngx-avatar *ngIf=!retrievedImage name="{{this.c}}" ></ngx-avatar>  
+              <div *ngIf=retrievedImage class="photo">
+                <img [src]="retrievedImage">
+            </div>
+            </div>
+              <div class="menu">
+              <h3>{{this.c}}<br><span> ADMIN </span></h3>
+              <ul>
+                <li><img src="/assets/settings.png"><a routerLink="/settings" routerLinkActive="active">Settings</a></li>
+                <li><img src="/assets/question.png">About us</li>
+                <li><img src="/assets/log-out.png"><a type=button (click)="logout()">Log out</a></li>
+              </ul>
+              </div>
+              </div>
+          </div>
+      </div></div>
+  </div>
+</nav>
+<div class="main">
+ 
+  <!-- <nav class="navigation">
+    <div class="logo" #logo>
+      <img src="../../assets/city.png" style="width: 50px;"> <p>DARI VORTEX</p>
+    </div>
+    <ul class="nav" #nav>
+      <li
+        class="nav__item"
+        *ngFor="let menu of menuList"
+        [routerLink]="menu.link"
+        (click)="onNavigate(menu.link)"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive
+        #routerLink="routerLinkActive"
+        [class.menu-active]="routerLink.isActive"
+      >
+        <svg class="icon {{ menu.icon }}">
+          <use attr.xlink:href="./assets/icons.svg#{{ menu.icon }}"></use>
+        </svg>
+        <a class="nav__link">{{ menu.name }}</a>
+      </li>
+    </ul>
+
+  </nav> -->
+  <router-outlet></router-outlet>
+  <div class="detail" [@detailPage]="openState">
+    <router-outlet name="d"></router-outlet>
+  </div>
+</div>

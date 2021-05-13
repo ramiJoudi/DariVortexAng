@@ -1,0 +1,101 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a href="#" class="navbar-brand">
+    <img src="../../assets/city.png" style="width: 50px;"> DARI VORTEX
+  </a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav">
+        <a routerLink="/dashboard" routerLinkActive="active" class="nav-item nav-link active">Home</a>
+        <a routerLink="/dashboard" routerLinkActive="active" class="nav-item nav-link active">Dashboard</a>
+        <a routerLink="/users" routerLinkActive="active" class="nav-item nav-link active">Manage users</a>
+        <a routerLink="/settings" routerLinkActive="active" class="nav-item nav-link active">Settings</a>
+ 
+      </div>
+      <div class="navbar-nav ml-auto">
+     
+        <div class="user" #user>
+
+          <div class="user__info">
+            <div class="action" style="top: 10px;">
+              <div class="profile" (click)="menuToggle()">
+                <ngx-avatar *ngIf=!retrievedImage name="{{this.u}}" ></ngx-avatar>  
+              <div *ngIf=retrievedImage class="photo">
+                <img [src]="retrievedImage">
+            </div>
+            </div>
+              <div class="menu">
+              <h3>{{this.u}}<br><span> ADMIN </span></h3>
+              <ul>
+                <li><img src="/assets/settings.png"><a routerLink="/settings" routerLinkActive="active">Settings</a></li>
+                <li><img src="/assets/question.png">About us</li>
+                <li><img src="/assets/log-out.png"><a type=button (click)="logout()">Log out</a></li>
+              </ul>
+              </div>
+              </div>
+          </div>
+      </div></div>
+  </div>
+</nav>
+<div class="main" >
+  
+
+    <!-- <nav class="navigation">
+     
+      <ul class="nav" #nav>
+        <li
+          class="nav__item"
+          *ngFor="let menu of menuList"
+          [routerLink]="menu.link"
+          (click)="onNavigate(menu.link)"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive
+          #routerLink="routerLinkActive"
+          [class.menu-active]="routerLink.isActive"
+        >
+          <svg class="icon {{ menu.icon }}">
+            <use attr.xlink:href="./assets/icons.svg#{{ menu.icon }}"></use>
+          </svg>
+          <a class="nav__link">{{ menu.name }}</a>
+        </li>
+      </ul>
+      
+    </nav> -->
+    <div class="detail" [@detailPage]="openState">
+      <router-outlet name="d"></router-outlet>
+    </div>
+    <router-outlet></router-outlet>
+  </div>  
+  <div class="container-fluid pb-0 mb-0 justify-content-center text-light " style="
+  margin-top: 20px;
+">
+    <footer>
+        <div class="row my-5 justify-content-center py-5">
+            <div class="col-11">
+                <div class="row ">
+                    <div class="col-xl-8 col-md-4 col-sm-4 col-12 my-auto mx-auto a" style="
+                     right: 250px;">
+   <h3 class="text-muted mb-md-0 mb-5 bold-text">DARI VORTEX.</h3>
+                    </div>
+                  
+                </div>
+                <div class="row ">
+                    <div class="col-xl-8 col-md-4 col-sm-4 col-auto my-md-0 mt-5 order-sm-1 order-3 align-self-end">
+                        <p class="social text-muted mb-0 pb-0 bold-text"> <span class="mx-2"><i class="fa fa-facebook" aria-hidden="true"></i></span> <span class="mx-2"><i class="fa fa-linkedin-square" aria-hidden="true"></i></span> <span class="mx-2"><i class="fa fa-twitter" aria-hidden="true"></i></span> <span class="mx-2"><i class="fa fa-instagram" aria-hidden="true"></i></span> </p><small class="rights"><span>&#174;</span> DARI VORTEX. All Rights Reserved.</small>
+                    </div>
+                    <div class="col-xl-2 col-md-4 col-sm-4 col-auto order-1 align-self-end ">
+        
+                        <h6 class=" text-muted bold-text"><b>ADDRESS</b></h6>
+                      <small>  <span><i class="fa fa-envelope" aria-hidden="true"></i></span> 1002, Tunis</small>
+                    </div>
+                    <div class="col-xl-2 col-md-4 col-sm-4 col-auto order-2 align-self-end mt-3 ">
+                        <h6 class="text-muted bold-text"><b>Conatct:</b></h6><small><span><i class="fa fa-envelope" aria-hidden="true"></i></span> 
+                          darivortex@gmail.com</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

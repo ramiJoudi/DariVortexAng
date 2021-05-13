@@ -2,28 +2,28 @@ import { Menu } from '../models/Menu';
 
 export const menuList: Menu[] = [
   {
-    name: 'Dashboard',
-    link: '/',
+    name: 'dashboard',
+    link: '/dashboard',
     icon: 'icon-grid',
   },
   {
-    name: 'Data',
-    link: '/data',
+    name: 'Claim',
+    link: '/ClaimCustm',
     icon: 'icon-circular-graph',
   },
+  // {
+  //   name: 'Listings',
+  //   link: '/listings',
+  //   icon: 'icon-list',
+  // },
   {
-    name: 'Listings',
-    link: '/listings',
-    icon: 'icon-list',
-  },
-  {
-    name: 'Clients',
-    link: '/clients',
+    name: 'users',
+    link: '/users',
     icon: 'icon-user',
   },
   {
-    name: 'Bills',
-    link: '/bills',
+    name: 'Claims',
+    link: '/claims',
     icon: 'icon-text-document',
   },
   {

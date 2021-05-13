@@ -1,0 +1,266 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- <div class="row">
+  <div class="column"> -->
+<!-- <div class="wrapper bg-white mt-sm-5" style="
+margin-left: 250px;
+" >
+    <h1 class="display-6 border-bottom">Account settings</h1>
+    <div class="d-flex align-items-start py-3 border-bottom"> <img src="https://svgshare.com/i/4qK.svg"  class="img" alt="">
+        <div class="pl-sm-4 pl-2" id="img-section"> <b>Hi User </b>
+            Feel free to edit your basic information such as name, email etc.
+        </div>
+    </div>
+    
+    <div class="py-2" >
+     <form #f="ngForm" (ngSubmit)="Submit()" >  
+        <div class="row py-2">
+            <div class="col-md-6"> <label for="firstname">User name</label> <input type="text" class="bg-light form-control" placeholder="example" 
+              [(ngModel)]="U"  name="u"   required ngModel #u="ngModel" minlength="5"> </div>
+            <div *ngIf="u.touched && u.invalid" class="text-danger" style="margin-top: 25px;">
+              <div *ngIf="u.errors.required">  username is required   </div>
+              <div *ngIf="u.errors.minlength"> Minimum 5 character are required. </div>   
+            
+               
+         </div>  
+         <div class="col-md-6"> <label for="firstname">Username</label>
+        <h4>{{this.name}}</h4><button class="btn"><i class="far fa-edit"></i></button>
+        </div>
+   
+
+         <div class="row py-2">
+          <div class="col-md-6"> <label for="firstname">email</label> <input type="text" class="bg-light form-control" placeholder="example" 
+            [(ngModel)]="E"  name="e"   required ngModel #e="ngModel" pattern="[a-zA-z0-9]+@[a-zA-z]+.[a-zA-z]*"> </div>
+          <div *ngIf="e.touched && e.invalid" class="text-danger"  style="margin-top: 25px;">
+            <div *ngIf="e.errors.required"> email is required </div>
+            <div *ngIf="e.errors.pattern"> email dosen't seem right </div>   
+             
+       </div></div>
+
+       <div class="row py-2">
+        <div class="col-md-6"> <label for="firstname">phone</label> <input type="text" class="bg-light form-control" placeholder="example" 
+          [(ngModel)]="P"  name="p"   required ngModel #p="ngModel" minlength="8"> </div>
+          <div *ngIf="p.touched && p.invalid" class="text-danger"  style="margin-top: 25px;">
+            <div *ngIf="p.errors.required"> phone is required </div>
+            <div *ngIf="p.errors.minlength"> Invalid number </div>   </div></div>
+       
+       
+     
+         <div class="py-3 pb-4 border-bottom"> <button class="btn btn-primary mr-3" >Save Changes</button>  </div>    
+       </form>  
+        <div class="d-sm-flex align-items-center pt-3" id="deactivate">
+            <div> <b>Change your password</b>
+            </div>
+            <div class="ml-auto"> <button class="btn btn-outline-info" (click)="ChangePwd()">Change
+            </button> </div>
+        </div>
+        <div class="d-sm-flex align-items-center pt-3" id="desactivate" (click)="desactivate()">
+            <div> <b>remove your account</b>
+                <p>Details about your company account and password</p>
+            </div>
+            <div class="ml-auto"> <button class="btn danger" (click)="removeAc()">remove</button> </div>
+        </div>
+
+    </div>
+</div></div>
+<div class="column">
+  
+
+     
+</div>
+ 
+</div> -->
+ 
+<!--Add User Modal-->
+<!-- <div class="body" style="
+    margin-left: 400px;
+    width: 600px;
+">
+<div class="settings-page">
+  <div class="settings-container">
+    <h1 class="page-title">Account</h1>
+    <div class="settings-section">
+      <h2 class="settings-title">General Information</h2>
+        <div class="non-active-form">
+          <p>ccu-an-b</p><i class="fas fa-pen"></i>
+        </div>
+   <div>
+     <div class="non-active-form">
+       <p class="capitalize">chloé</p><i class="fas fa-pen"></i>
+     </div>
+    </div>
+    <div>
+      <div class="non-active-form">
+        <p class="capitalize">c</p><i class="fas fa-pen"></i>
+      </div>
+    </div>
+    <div>
+      <div class="non-active-form">
+        <p>chloe@test.fr</p><i class="fas fa-pen"></i>
+      </div>
+    </div>
+  </div>
+<div class="settings-section">
+  <h2 class="settings-title">My profile</h2>
+  <form class="form my-form">
+    <div class="img-upload-container">
+      <label class="img-upload btn btn-bwm" style="background-image: url(&quot;/profile-placeholder.jpg&quot;);">
+        <input type="file" accept=".jpg, .png, .jpeg, .gif" value="">
+      </label>
+      <h4>Change Your Profile Picture</h4>
+      <div class="img-preview-container">
+        <div class="img-preview" style="background-image: url('http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png');">
+        </div>
+      </div>
+    </div>
+    <div class="form-submit">
+      <button class="btn button full" type="submit" disabled="">Save New Picture</button>
+    </div>
+  </form>
+</div>
+<div class="settings-section">
+  <h2 class="settings-title">Password</h2>
+  <form class="form my-form">
+    <div class="form-group">
+      <div class="input-group">
+        <input name="currentPassword" placeholder="Old Password" type="password" class="form-control" autocomplete="Old Password" value="">
+        <span class="focus-input"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <input name="password" placeholder="New Password" type="password" class="form-control" autocomplete="New Password" value="">
+        <span class="focus-input"></span>
+      </div>
+    </div>
+   <div class="form-submit right">
+     <button class="btn button full" type="submit" disabled="">Change Password</button>
+    </div>
+  </form>
+</div>
+</div>
+</div></div> -->
+<div class="container rounded bg-white mt-5 mb-5" style="
+margin-left: 200px;
+">
+  <div class="row">
+      <div class="col-md-3 border-right">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><div class="photo"><div *ngIf="retrievedImage"><img   [src]="retrievedImage" ></div>
+          <div *ngIf="!retrievedImage"><ngx-avatar name="{{this.c}}"></ngx-avatar></div></div>
+          <span class="font-weight-bold">{{this.name}}</span><span class="text-black-50">{{this.email}}</span><span>{{this.mob}}</span></div>
+          <!-- <input type="file" id="upload" hidden/>
+<label for="upload">Choose file</label> -->
+
+<div class="row mt-2"> 
+      <h3 class="text-right" style="margin-left: 10px; " >Change your photo</h3></div>
+      <div class="row mt-0"> 
+      <div class="col-md-6">
+      <input type="file" id="upload" (change)="onFileChanged($event)" hidden/>
+      <label for="upload" class="lab">Choose file <img src="https://img.icons8.com/ios/50/000000/upload--v1.png" style="width: 30px;"/></label>
+      <img [src]="imgURL" height="200" *ngIf="imgURL">
+  
+      <input type="button" (click)="onUpload()" class="btn btn-outline-light" value="upload">
+  </div>
+</div>
+
+      </div>
+      <div class="col-md-5 border-right">
+          <div class="p-3 py-5">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h3 class="text-right" >Edit your profile</h3>
+              </div>
+              <div class="row mt-3">
+      
+                  <div class="col-md-10"><label class="labels">Username</label><input type="text" class="form-control"  [(ngModel)]="uname" placeholder="{{this.name}}"></div>
+                  <div class="col-md-2" style=" top: 30px;"><button class="btn" (click)="editName()"><i class="far fa-edit"></i></button></div>
+                 
+                </div>
+              <div class="row mt-3">
+                <div class="col-md-10"><label class="labels">Email</label><input type="text" class="form-control" [(ngModel)]="uemail" placeholder="{{this.email}}"></div>
+                <div class="col-md-2" style=" top: 30px;"><button class="btn" (click)="editMail()"><i class="far fa-edit"></i></button></div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-10"><label class="labels">Mobile</label><input type="number" class="form-control" [(ngModel)]="umobile" placeholder="{{this.mob}}"></div>
+                <div class="col-md-2" style=" top: 30px;"><button class="btn" (click)="editMobile()"><i class="far fa-edit"></i></button></div>
+              </div>
+              <div class="mt-5"></div>
+              <!-- <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div> -->
+          </div>
+            
+      </div>
+      <div class="col-md-4">
+          <div class="p-3 py-5">
+              <div class="d-flex justify-content-between align-items-center experience"><h3 class="text-right">Manage your account</h3> </div>
+              <div class="d-flex flex-row mt-3 exp-container">
+                <!-- <img src="https://i.imgur.com/azSfBM3.png" width="45" height="45"> -->
+                <div class="d-sm-flex align-items-center pt-3" id="deactivate">
+                  <div> <b>Change your password</b>
+                  </div>
+                  <div  > <button class="btn btn-outline-info" (click)="ChangePwd()" style="margin-left: 95px">Change
+                  </button> </div>
+              </div>
+              </div>
+              <hr>
+              <div class="d-flex flex-row mt-3 exp-container">
+                <!-- <img src="https://img.icons8.com/color/100/000000/facebook.png" width="45" height="45"> -->
+                <div class="d-sm-flex align-items-center pt-3" id="desactivate" (click)="desactivate()">
+                  <div> <b>remove your account</b>
+                      <p>Your account will be permanently deleted !</p>
+                  </div>
+                  <div class="ml-auto"> <button class="btn btn-danger" (click)="removeAc()" >remove</button> </div>
+              </div>
+              </div>
+              <hr>
+              <div class="d-flex flex-row mt-3 exp-container"> 
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- modalll -->
+<div class="modal" id="addUser">
+<div class="modal-dialog">
+  <div class="modal-content" style="
+  top: 100px;
+">
+  
+    <div class="modal-header">
+      <h2 class="modal-title align-center">Change password</h2>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    
+    <div class="modal-body">
+    
+      <form [formGroup]="angForm" (ngSubmit)="onSubmit()" novalidate>
+        
+          
+          
+           
+        <div class="form-group">
+          
+                <div class="form-group">
+                 <input type="password"  formControlName="Npwd" class="form-control"   placeholder="New Password" />
+                 <div *ngIf="getControl.Npwd.touched && getControl.Npwd.invalid" class="text-danger">
+                  <div *ngIf="getControl.Npwd.errors.required">password is required.</div>
+                  <div *ngIf="getControl.Npwd.errors?.minlength">Minimum 5 character are required.</div>
+                </div>
+                </div>
+            
+                <div class="form-group">
+               <input type="password"  formControlName="Cpwd" class="form-control" placeholder="Confirm Password"/>
+         <div *ngIf="getControl.Cpwd.touched && getControl.Cpwd.invalid" class="text-danger">
+                  <div *ngIf="getControl.Cpwd.errors.required">password is required.</div>
+                  <div *ngIf="getControl.Cpwd.errors?.minlength">Minimum 5 character are required.</div>
+                </div>
+              </div>
+         </div>
+          <button type="submit" class="btn btn-primary">OK</button>
+        </form>
+    </div>
+  
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+ 
+ 

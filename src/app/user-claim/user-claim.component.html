@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<div class="wrapper bg-white mt-sm-5"style="
+margin-left: 250px;
+" >
+    <h1 class="display-6 border-bottom" >Make a claim</h1>
+    <div class="d-flex align-items-start py-3 border-bottom"> <img src="../assets/Claim.jpg" class="img" alt="">
+        <div class="pl-sm-4 pl-2" id="img-section"> <b>Hi User </b>
+          Welcome to claim's interface.<br>Enter the username with you want to complain ,and according to claim subject we'll make a measures necessary.
+        </div>
+    </div>
+    
+    <div class="py-2">
+      <form #f="ngForm" (ngSubmit)="Submit()" >
+         
+   
+
+         <div class="row py-2">
+          <div class="col-md-6"> <label for="firstname">Customer username</label> <input type="text" class="bg-light form-control" placeholder="example" 
+            [(ngModel)]="E"  name="e"   required ngModel #e="ngModel" > </div>
+          <div *ngIf="e.touched && e.invalid" class="text-danger"  style="margin-top: 25px;">
+             Username is required 
+       </div></div>
+
+       <div class="row py-2">
+        <div class="col-md-6"> <label for="firstname">Subject</label> 
+          <select   class="form-control" id="exampleFormControlSelect1" aria-label="Default select example"  
+          [(ngModel)]="S"  name="s"   required ngModel #s="ngModel">
+            <option value="Arnaque">Scam</option>
+            <option value="BadWords">Bad Words</option>
+            <option value="NotSerious">Not serious</option>
+          </select> 
+        </div>
+        <div *ngIf="s.touched && s.invalid" class="text-danger"  style="margin-top: 25px;">
+          Subject is required 
+    </div>
+       </div>
+       
+     
+        <div class="py-3 pb-4 border-bottom"> <button class="btn btn-primary mr-3" [disabled]="f.invalid" >Send</button>  </div>    </form>
+     
+        </div>
+     
+ 
+ 
+<!--Add User Modal-->
+ 

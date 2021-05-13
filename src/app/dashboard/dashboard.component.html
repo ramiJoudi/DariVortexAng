@@ -1,0 +1,305 @@
+ 
+ <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <title>Hello, world!</title>
+	
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+	    <!--fontawesome-->
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+   
+ </head>
+ 
+
+ 
+ 
+  
+  <div id="wrapper" style="
+  margin-left: 80px;
+margin-bottom: 150px;">
+   <div class="overlay"></div>
+   <!-- Page Content -->
+        <div id="page-content-wrapper">
+         
+			
+			<div id="content">
+
+       <div class="container-fluid p-0 px-lg-0 px-md-0" style="margin-top: 50px;">
+      
+
+        <!-- Begin Page Content -->
+        <div class="">
+<div class="row">
+<div class="col-md-12 mt-lg-4 mt-4">
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <div class="display-4" >Dashboard</div>
+          
+          </div>
+		  </div>
+ 
+<div class="col-md-12" >
+       <div class="row" >
+									<div class="col-sm-3">
+										<div class="card">
+											<div class="card-body">
+												<h5 class="card-title mb-4">Number of admins</h5>
+												<h1 class="display-5 mt-1 mb-3">{{adminnmb}} admins</h1>
+												<div class="mb-1">
+													<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i>  </span>
+													<span class="text-success">updated recently</span>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									<div class="col-sm-3">
+										<div class="card">
+											<div class="card-body">
+												<h5 class="card-title mb-4">Number of clients</h5>
+												<h1 class="display-5 mt-1 mb-3">{{clientnumber}} clients</h1>
+												<div class="mb-1">
+													<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> </span>
+													<span class="text-success">updated recently</span>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									<div class="col-sm-3">
+										<div class="card">
+											<div class="card-body">
+												<h5 class="card-title mb-4">Number of owners</h5>
+												<h1 class="display-5 mt-1 mb-3">{{ownernumber}} owners</h1>
+												<div class="mb-1">
+													<span class="text-success">updated recently</span>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									<div class="col-sm-3">
+										<div class="card">
+											<div class="card-body">
+												<h5 class="card-title mb-4">Number of operators</h5>
+												<h1 class="display-5 mt-1 mb-3">{{opnumber}} operators</h1>
+												<div class="mb-1">
+													<span class="text-success">updated recently</span>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									
+									
+								</div>
+</div>
+<div><h2 class="h2 mb-0 text-gray-800">Recent users</h2> 
+<div class="container" style="margin-left: 0px;">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="our-team">
+          <div class="picture">
+           <div  *ngIf="!this.user1.img"  > <img class="img" style="height: 130px;"src="../../assets/images.png"></div>
+           <div  *ngIf="this.user1.img"><img [src]="this.user1.img"></div>
+          </div>
+          <div class="team-content">
+            <h3 class="name">{{this.user1.username}}</h3>
+            <h4 class="title">Role: {{this.user1.role}}</h4>
+          </div>
+          <ul class="social">
+            <h4 class="title" style="color: #ffffff59;">email: {{this.user1.email}}</h4>
+          </ul>
+        </div>
+      </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="our-team">
+          <div class="picture">
+            <div  *ngIf="!this.user2.img"  > <img class="img" style="height: 130px;"src="../../assets/images.png"></div>
+            <div  *ngIf="this.user2.img"><img [src]="this.user2.img"></div>
+           </div>
+          <div class="team-content">
+            <h3 class="name">{{this.user2.username}}</h3>
+            <h4 class="title">Role: {{this.user2.role}}</h4>
+          </div>
+          <ul class="social">
+            <h4 class="title" style="color: #ffffff59;">email: {{this.user2.email}}</h4>
+          </ul>
+        </div>
+      </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="our-team">
+          <div class="picture">
+            <div  *ngIf="!this.user3.img"  > <img class="img" style="height: 130px;"src="../../assets/images.png"></div>
+            <div  *ngIf="this.user3.img"><img [src]="this.user3.img"></div>
+           </div>
+          <div class="team-content">
+            <h3 class="name">{{this.user3.username}}</h3>
+            <h4 class="title">Role: {{this.user3.role}}</h4>
+          </div>
+          <ul class="social">
+            <h4 class="title" style="color: #ffffff59;" >email: {{this.user3.email}}</h4>
+          </ul>
+        </div>
+      </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="our-team">
+          <div class="picture">
+            <div  *ngIf="!this.user4.img"  > <img class="img" style="height: 130px;"src="../../assets/images.png"></div>
+            <div  *ngIf="this.user4.img"><img [src]="this.user4.img"></div>
+           </div>
+          <div class="team-content">
+            <h3 class="name">{{this.user4.username}}</h3>
+            <h4 class="title">Role: {{this.user4.role}}</h4>
+          </div>
+          <ul class="social">
+            <h4 class="title" style="color: #ffffff59;">email: {{this.user4.email}}</h4>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div></div>
+<!-- <div class="body"> -->
+    <!--chart start-->
+    <!-- <div class="chart" style="
+    height: 700px;
+    margin-right: -20;
+">
+        <ul class="numbers">
+          <li><span>100%</span></li>
+          <li><span>50%</span></li>
+          <li><span>0%</span></li>
+        </ul>
+        <ul class="bars">
+          <li><div class="bar" data-percentage="50"></div><span>Option 01</span></li>
+          <li><div class="bar" data-percentage="30"></div><span>Option 02</span></li>
+          <li><div class="bar" data-percentage="60"></div><span>Option 03</span></li>
+          <li><div class="bar" data-percentage="100"></div><span>Option 04</span></li>
+          <li><div class="bar" data-percentage="80"></div><span>Option 05</span></li>
+        </ul>
+      </div>
+  </div>  
+      -->    <div class="row" >
+     <!-- <h1>{{this.AS.BadWPourC}}</h1> -->
+    
+  <div  class="row">
+
+  <!-- <h2 class="h2 mb-0 text-gray-800">Claims statistics</h2>
+<div class="holder"><div class="bar cf" attr.data-percent="{{ArnquePourC}}%"><span class="label">Scam</span></div><div class="bar cf" attr.data-percent="{{this.BadWPourC}}%"><span class="label light">Bad Words</span></div><div class="bar cf" attr.data-percent="{{this.NotSPourC}}%"><span class="label">Not serious</span></div>  
+  </div>--> 
+
+ 
+  <table class="tab"  ><tr><td>     <h4 class=" text-gray-800" style="
+    margin-left: 150px;
+    margin-bottom: 70px;
+    margin-top: 20px;
+">Claims statistics</h4> <ngx-charts-bar-vertical [results]="claimsP"    [xAxis]="true"
+[customColors]="customColors"
+    [yAxis]="true"
+    [gradient]="true"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [view]="[600,300]"
+    [title]="true"
+  ></ngx-charts-bar-vertical > </td></tr></table>
+
+ </div>   
+ 
+  <div>   </div>
+                    <!-- column   -->
+<!--                       
+                                           <td>
+                                                <label class="label label-danger">Angular</label>
+                                            </td>
+                                            <td>46</td>
+                                            <td>356</td>
+                                            <td>
+                                                <h5 class="m-b-0">$2850.06</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="m-r-10"><a class="btn btn-circle btn-orange text-white">MA</a></div>
+                                                    <div class="">
+                                                        <h4 class="m-b-0 font-16">Monster Admin</h4>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Single Use</td>
+                                            <td>Venessa Fern</td>
+                                            <td>
+                                                <label class="label label-info">Vue Js</label>
+                                            </td>
+                                            <td>46</td>
+                                            <td>356</td>
+                                            <td>
+                                                <h5 class="m-b-0">$2850.06</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="m-r-10"><a class="btn btn-circle btn-success text-white">MP</a></div>
+                                                    <div class="">
+                                                        <h4 class="m-b-0 font-16">Material Pro Admin</h4>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Single Use</td>
+                                            <td>John Doe</td>
+                                            <td>
+                                                <label class="label label-success">Bootstrap</label>
+                                            </td>
+                                            <td>46</td>
+                                            <td>356</td>
+                                            <td>
+                                                <h5 class="m-b-0">$2850.06</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="m-r-10"><a class="btn btn-circle btn-purple text-white">AA</a></div>
+                                                    <div class="">
+                                                        <h4 class="m-b-0 font-16">Ample Admin</h4>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Single Use</td>
+                                            <td>John Doe</td>
+                                            <td>
+                                                <label class="label label-purple">React</label>
+                                            </td>
+                                            <td>46</td>
+                                            <td>356</td>
+                                            <td>
+                                                <h5 class="m-b-0">$2850.06</h5>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>  
+                   
+
+        </div>
+
+     </div>
+			
+			</div>
+      
+  
+			
+			 -->
+			 
+			 
+			 
