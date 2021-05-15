@@ -1,0 +1,24 @@
+
+<div class="body table-responsive" style="margin-left: 200px;">
+  <table class="table table-bordered">
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Price</th>
+      <th>Date</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let e of ListContract">
+      <td>{{e.name}}</td>
+      <td>{{e.type}}</td>
+      <td>{{e.effective_price}}</td>
+      <td>{{e.effective_Date}}</td>
+      <td><button class="btn btn-dark" (click)="update()">Update</button></td>
+      <td><button class="btn btn-dark" (click)="delete(e.id)">delete</button></td>
+    </tr>
+  </table>
+  <div class="col-md-4 text-right">
+    <button class="btn btn-success btn-block" (click)="generatePdf()">open PDF</button>
+  </div>
+</div>
+

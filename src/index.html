@@ -7,8 +7,403 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  <script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk">
+</script>
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type='text/javascript'
+src='https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places,weather'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<style type='text/css'>
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map-canvas { height: 100% }
+</style>-->
 </head>
 <body>
   <rl-root></rl-root>
+
+ <!-- <script>
+
+var map, geocoder, directionsService, directionsDisplay, myMarker, nearestMarker;
+var markers = [];
+
+
+function initMap() { 
+
+  directionsService = new google.maps.DirectionsService;
+  directionsDisplay = new google.maps.DirectionsRenderer;
+  
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 3, center: {lat: 34, lng: -90}
+  });
+  directionsDisplay.setMap(map);
+ directionsDisplay.setPanel(document.getElementById('directions-panel'));
+  
+  addAllToMap();
+  geocoder = new google.maps.Geocoder();
+  document.getElementById('submit').addEventListener('click', function() {
+    geocodeAddress(geocoder, map);
+  });
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  var address = document.getElementById('address').value;
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK){
+      resultsMap.setCenter(results[0].geometry.location);
+      myMarker = new google.maps.Marker({
+        map: map, position: results[0].geometry.location,
+        icon: {path: google.maps.SymbolPath.CIRCLE,scale: 3},
+        title: 'My Location'
+      });
+      nearestMarker = find_closest_marker(myMarker);
+      calculateAndDisplayRoute();
+      
+    } else { /* error */ }
+  });
+}
+
+function calculateAndDisplayRoute() {
+  directionsService.route({
+    origin: myMarker.position,
+    destination: nearestMarker.position,
+    travelMode: google.maps.TravelMode.DRIVING
+  }, function(response, status) {
+    if (status === google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    } else {
+      window.alert('Directions request failed due to ' + status);
+    }
+  });
+}
+
+function find_closest_marker(marker) {   
+  console.log(marker);
+    var lat1 = marker.position.lat()
+    var lon1 = marker.position.lng()
+    var pi = Math.PI;
+    var R = 6371; //equatorial radius
+    var distances = [];
+    var closest = -1;
+
+    for( i=0; i < markers.length; i++){  
+        var lat2 = markers[i].position.lat();
+        var lon2 = markers[i].position.lng();
+
+        var chLat = lat2-lat1;
+        var chLon = lon2-lon1;
+
+        var dLat = chLat*(pi/180);
+        var dLon = chLon*(pi/180);
+
+        var rLat1 = lat1*(pi/180);
+        var rLat2 = lat2*(pi/180);
+
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
+                    Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(rLat1) * Math.cos(rLat2); 
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+        var d = R * c;
+
+        distances[i] = d;
+        if ( closest == -1 || d < distances[closest] ) {
+            closest = i;
+        }
+    }
+
+  return markers[closest];
+}
+
+
+function addAllToMap(){
+  for(var i=0; i < places.length; i++){
+    markers.push(addAddressToMap(places[i]));
+  }
+} 
+
+function addAddressToMap(row){
+      return new google.maps.Marker({
+          map: map,
+          position: {lat: parseFloat(row.lat), lng: parseFloat(row.lon)},
+          title: row.name,
+          clickable: true
+      });
+}                                   
+
+var places = [
+    {"name":"Frankie Johnnie & Luigo Too","address":"939 W El Camino Real, Mountain View, CA","lat":"37.386339","lon":"-122.085823"},
+    {"name":"Amici's East Coast Pizzeria","address":"790 Castro St, Mountain View, CA","lat":"37.38714","lon":"-122.083235"},
+    {"name":"Kapp's Pizza Bar & Grill","address":"191 Castro St, Mountain View, CA","lat":"37.393885","lon":"-122.078916"},
+    {"name":"Round Table Pizza: Mountain View","address":"570 N Shoreline Blvd, Mountain View, CA","lat":"37.402653","lon":"-122.079354"},
+    {"name":"Tony & Alba's Pizza & Pasta","address":"619 Escuela Ave, Mountain View, CA","lat":"37.394011","lon":"-122.095528"},
+    {"name":"Oregano's Wood-Fired Pizza","address":"4546 El Camino Real, Los Altos, CA","lat":"37.401724","lon":"-122.114646"},
+    {"name":"Round Table Pizza: Sunnyvale-Mary-Central Expy","address":"415 N Mary Ave, Sunnyvale, CA","lat":"37.390038","lon":"-122.042034"},
+    {"name":"Giordano's","address":"730 N Rush St, Chicago, IL","lat":"41.895729","lon":"-87.625411"},
+    {"name":"Filippi's Pizza Grotto","address":"1747 India St, San Diego, CA","lat":"32.723831","lon":"-117.168326"},
+    {"name":"Pizzeria Paradiso","address":"2029 P St NW, Washington, DC","lat":"38.90965","lon":"-77.0459"},
+    {"name":"Tutta Bella Neapolitan Pizzera","address":"4918 Rainier Ave S, Seattle, WA","lat":"47.557704","lon":"-122.284985"},
+    {"name":"Touche Pasta Pizza Pool","address":"1425 NW Glisan St, Portland, OR","lat":"45.526465","lon":"-122.68558"},
+    {"name":"Piecora's New York Pizza","address":"1401 E Madison St, Seattle, WA","lat":"47.614005","lon":"-122.313985"},
+    {"name":"Pagliacci Pizza","address":"550 Queen Anne Ave N, Seattle, WA","lat":"47.623942","lon":"-122.356719"},
+    {"name":"Zeeks Pizza - Phinney Ridge","address":"6000 Phinney Ave N, Seattle, WA","lat":"47.67267","lon":"-122.354092"},
+    {"name":"Old Town Pizza","address":"226 NW Davis St, Portland, OR","lat":"45.524557","lon":"-122.67268"},
+    {"name":"Zeeks Pizza - Belltown","address":"419 Denny Way, Seattle, WA","lat":"47.618314","lon":"-122.347998"},
+    {"name":"Escape From New York Pizza","address":"622 NW 23rd Ave, Portland, OR","lat":"45.527105","lon":"-122.698509"},
+    {"name":"Big Fred's Pizza Garden","address":"1101 S 119th St, Omaha, NE","lat":"41.248662","lon":"-96.09876"},
+    {"name":"Old Chicago","address":"1111 Harney St, Omaha, NE","lat":"41.25652","lon":"-95.930683"},
+    {"name":"Sgt Peffer's Cafe Italian","address":"1501 N Saddle Creek Rd, Omaha, NE","lat":"41.273084","lon":"-95.987816"},
+    {"name":"Mama's Pizza","address":"715 N Saddle Creek Rd, Omaha, NE","lat":"41.265883","lon":"-95.980682"},
+    {"name":"Zio's New York Style Pizzeria","address":"1213 Howard St, Omaha, NE","lat":"41.25545","lon":"-95.932022"},
+    {"name":"Zio's New York Style Pizzeria","address":"7834 W Dodge Rd, Omaha, NE","lat":"41.26325","lon":"-96.0564"},
+    {"name":"La Casa Pizzaria","address":"4432 Leavenworth St, Omaha, NE","lat":"41.2524","lon":"-95.979578"}
+];
+
+window.onload = getMyLocation;
+
+var map;
+function getMyLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(displayLocation);
+  } else {
+    alert('Oops, no geolocation support');
+  }
+}
+
+//This function is inokved asynchronously by the HTML5 geolocation API.
+function displayLocation(position) {
+  //The latitude and longitude values obtained from HTML 5 API.
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+
+  //Creating a new object for using latitude and longitude values with Google map.
+  var latLng = new google.maps.LatLng(latitude, longitude);
+
+  showMap(latLng);
+
+  addNearByPlaces(latLng);
+  createMarker(latLng);
+
+  //Also setting the latitude and longitude values in another div.
+  var div = document.getElementById('location');
+  div.innerHTML = 'You are at Latitude: ' + latitude + ', Longitude: ' + longitude;
+}
+
+function showMap(latLng) {
+  //Setting up the map options like zoom level, map type.
+  var mapOptions = {
+    center: latLng,
+    zoom: 18,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  //Creating the Map instance and assigning the HTML div element to render it in.
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+}
+
+function addNearByPlaces(latLng) {
+
+  var nearByService = new google.maps.places.PlacesService(map);
+
+  var request = {
+    location: latLng,
+    radius: 1000,
+    types: ['food', 'bakery', 'cafe', 'grocery_or_supermarket', 'meal_delivery','restaurant', 'meal_takeaway', 'shopping_mall']
+  };
+
+  nearByService.nearbySearch(request, handleNearBySearchResults);
+}
+
+function handleNearBySearchResults(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      createMarker(place.geometry.location, place);
+    }
+  }
+}
+
+function createMarker(latLng, placeResult) {
+  var markerOptions = {
+    position: latLng,
+    map: map,
+    animation: google.maps.Animation.DROP,
+    clickable: true
+  }
+  //Setting up the marker object to mark the location on the map canvas.
+  var marker = new google.maps.Marker(markerOptions);
+
+  if (placeResult) {
+    var content = placeResult.name+'<br/>'+placeResult.vicinity+'<br/>'+placeResult.types;
+    addInfoWindow(marker, latLng, content);
+  }
+  else {
+    var content = 'You are here: ' + latLng.lat() + ', ' + latLng.lng();
+    addInfoWindow(marker, latLng, content);
+  }
+
+}
+
+function addInfoWindow(marker, latLng, content) {
+  var infoWindowOptions = {
+    content: content,
+    position: latLng
+  };
+
+  var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infoWindow.open(map);
+  });
+}
+   var findMeButton = $('.find-me');
+
+// Check if the browser has support for the Geolocation API
+if (!navigator.geolocation) {
+
+  findMeButton.addClass("disabled");
+  $('.no-browser-support').addClass("visible");
+
+} else {
+
+  findMeButton.on('click', function(e) {
+
+    e.preventDefault();
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+
+      // Get the coordinates of the current possition.
+      var lat = position.coords.latitude;
+      var lng = position.coords.longitude;
+
+      $('.latitude').text(lat.toFixed(3));
+      $('.longitude').text(lng.toFixed(3));
+      $('.coordinates').addClass('visible');
+
+      // Create a new map and place a marker at the device location.
+      var map = new GMaps({
+        el: '#map',
+        lat: lat,
+        lng: lng
+      });
+
+      map.addMarker({
+        lat: lat,
+        lng: lng
+      });
+
+    });
+
+  });
+
+}
+
+var map;
+
+function initialize() {
+  var mapOptions = {
+    zoom: 13
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  var pos;
+  // Try HTML5 geolocation
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      pos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);
+
+      var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: pos,
+        content: 'Location found using HTML5.'
+      });
+      map.setCenter(pos);
+      
+      var km = parseInt(document.getElementById('km').value);
+      
+      DrowCircle(mapOptions, map, pos, km);
+      
+      //高雄市三民區和順街 (22.653753, 120.31604700000002)
+      //var pos2 = new google.maps.LatLng(22.653753,120.31604700000002);
+      //DrowCircle(mapOptions, map, pos2, 2);
+      
+    }, function() {
+      handleNoGeolocation(true);
+      
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+}
+
+function DrowCircle(mapOptions, map, pos, km ) {
+    var populationOptions = {
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#FF0000',
+      fillOpacity: 0.35,
+      map: map,
+      center: pos,
+      radius: Math.sqrt(km*500) * 100
+    };
+    // Add the circle for this city to the map.
+    cityCircle = new google.maps.Circle(populationOptions);
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(60, 105),
+    content: content
+  };
+
+  var infowindow = new google.maps.InfoWindow(options);
+  map.setCenter(options.position);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+    (function() {
+  if(!!navigator.geolocation) {
+    var map;
+    var mapOptions = {
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById('google_canvas'), mapOptions);
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: geolocate,
+        content:
+        '<h1>Local atual</h1>' +
+        '<h2>Latitude: ' + position.coords.latitude + '</h2>' +
+        '<h2>Longitude: ' + position.coords.longitude + '</h2>'
+      });
+      map.setCenter(geolocate);
+    });
+  } else {
+    document.getElementById('google_canvas').innerHTML = 'Não oferece suporte a geolocalização';
+  }
+})();
+    </script>-->
 </body>
 </html>

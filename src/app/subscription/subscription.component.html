@@ -1,0 +1,45 @@
+
+<div class="container" style="margin-left: 150px;">
+    <div class="row">
+      <div class="col-md-6">
+        <form id="monForm">
+          <fieldset>
+            <legend class="text-center">Valid information is required to register<span class="req"></span></legend>
+
+            <div class="form-group">
+              <label for="name"><span class="req">* </span> FirstName: </label>
+              <input class="form-control" type="text" [(ngModel)]="subscription.firstName" name="first_name"  required
+                     placeholder="Enter your FirstName" />
+            </div>
+
+            <div class="form-group">
+              <label for="name"><span class="req">* </span> LastName: </label>
+              <input class="form-control" type="text" [(ngModel)]="subscription.lastName" name="last_name"  required
+                     placeholder="Enter your lastName..." />
+            </div>
+  
+            <div class="form-group">
+              <label for="type"><span class="req">* </span> Address: </label>
+              <input class="form-control" type="text" [(ngModel)]="subscription.address" name="address" required
+                     placeholder="Enter your address" />
+            </div>
+
+            <div class="form-group">
+              <label for="price"><span class="req">* </span> Email: </label>
+              <input class="form-control" type="text" [(ngModel)]="subscription.email" name="email" required
+                     placeholder="Enter your email"/>
+            </div>
+            <div class="form-group">
+              <label for="offre"><span class="req">* </span> Offre: </label>
+              <input class="form-control" type="text" [(ngModel)]="subscription.offre" name="offre" required
+                     placeholder="Enter your offre"/>
+            </div>
+
+            <div class="form-group">
+              <input class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="registerNow()">
+            </div>
+        </fieldset>
+    </form>
+    </div>
+</div>
+</div>

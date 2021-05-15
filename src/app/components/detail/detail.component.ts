@@ -88,4 +88,13 @@ export class DetailComponent implements OnInit, AfterViewInit {
     this.router.navigateByUrl('listings');
     this.ui.openState.next('closed');
   }
+  toggle(){
+    this.router.navigate(['/contract']);
+    this.delay(500).then(any=>{
+      window.location.reload();
+  });
+  }
+  async delay(ms: number) {
+  await new Promise(resolve => setTimeout(()=>resolve(ms), ms)).then(()=>console.log("fired"));
+}
 }

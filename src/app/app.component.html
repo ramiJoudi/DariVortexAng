@@ -1,5 +1,26 @@
-<div class="main">
-  <div class="user" #user>
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a href="#" class="navbar-brand">
+    <img src="../../assets/city.png" style="width: 50px;"> DARI VORTEX
+  </a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav">
+        <a routerLink="/" routerLinkActive="active" class="nav-item nav-link active">Home</a>
+        <a routerLink="/listings" routerLinkActive="active" class="nav-item nav-link active">Listings</a>
+        <a routerLink="/contractp" routerLinkActive="active" class="nav-item nav-link active">Contract Pdf</a>
+        <a routerLink="/visits" routerLinkActive="active" class="nav-item nav-link active">Visits</a>
+        <a routerLink="/subscription" routerLinkActive="active" class="nav-item nav-link active">Subscription</a>
+        <a routerLink="/subscriptionMang" routerLinkActive="active" class="nav-item nav-link active">Manage subscriptions</a>
+      </div>  
+     
+  </div>
+  <ngx-avatar name="Hamza"></ngx-avatar>  
+</nav>
+<div class="main" xmlns:attr.xlink="">
+  <!-- <div class="user" #user>
     <div class="notification">
       <svg class="icon icon-bell">
         <use href="./assets/icons.svg#icon-bell"></use>
@@ -17,11 +38,9 @@
         <use href="./assets/icons.svg#icon-chevron-small-down"></use>
       </svg>
     </div>
-  </div>
-  <nav class="navigation">
-    <div class="logo" #logo>
-      <h3>Site logo.</h3>
-    </div>
+  </div> -->
+  <nav class="navigation" style="width: 50px">
+     
     <ul class="nav" #nav>
       <li
         class="nav__item"
@@ -39,15 +58,12 @@
         <a class="nav__link">{{ menu.name }}</a>
       </li>
     </ul>
-    <div class="ad" #ad>
-      <h2 class="heading-2"><span>Upgrade to</span><span>PRO account</span></h2>
-      <svg class="icon icon-up-arrow">
-        <use href="./assets/icons.svg#icon-arrow-up-right"></use>
-      </svg>
-    </div>
+ 
   </nav>
   <router-outlet></router-outlet>
   <div class="detail" [@detailPage]="openState">
     <router-outlet name="d"></router-outlet>
   </div>
 </div>
+
+<!-- <rl-map></rl-map> -->

@@ -1,0 +1,20 @@
+<div class="body table-responsive" style="margin-left: 150px;">
+    <table class="table table-bordered">
+      <tr><th>FirstName</th>
+        <th>LastName</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Offre</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let sub of ListSubscription">
+        <td>{{sub.firstName}}</td>
+        <td>{{sub.lastName}</td>
+        <td>{{sub.address}}</td>
+        <td>{{sub.email}}</td>
+        <td>{{sub.offer}}</td>
+        <td><button class="btn btn-dark" (click)="update()">Update</button></td>
+        <td><button class="btn btn-dark" (click)="delete(sub.id)">delete</button></td>
+      </tr>
+    </table>
+  </div>

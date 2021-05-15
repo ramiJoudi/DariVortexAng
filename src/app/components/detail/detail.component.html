@@ -20,6 +20,12 @@
     <span>{{ property.squareMeters }}m </span>
   </div>
   <span class="price">${{ property.price }}</span>
+  <ul class="list-group">
+    <div>
+      <button type="button" class="call" #call >Buy</button>
+      <button type="button" class="call" (click) ="toggle()" >Rent</button>
+    </div>
+  </ul>
 </div>
 
-<button class="call" #call>Call owner</button>
+

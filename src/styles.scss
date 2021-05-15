@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
 
 :root {
   --color-light-1: #f5f6fa;
@@ -419,5 +421,5 @@ rl-listings {
 }
 
 .active {
-  border: 2px solid var(--color-light-blue);
+  // border: 2px solid var(--color-light-blue);
 }
