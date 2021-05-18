@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~11.2.11",
     "@angular/platform-browser-dynamic": "~11.2.11",
     "@angular/router": "~11.2.11",
+    "@swimlane/ngx-charts": "^18.0.1",
     "@types/gsap": "^1.20.2",
     "@types/jquery": "^3.5.5",
     "@types/moment": "^2.13.0",

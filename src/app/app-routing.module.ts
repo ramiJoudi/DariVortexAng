@@ -5,6 +5,7 @@ import { ListingsComponent } from './components/listings/listings.component';
 import {FormulaireComponent} from './formulaire/formulaire.component';
 import {HistoricalComponent} from './historical/historical.component';
 import {ContractComponent} from "./contract/contract.component";
+import {EstimateComponent} from "./estimate/estimate.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'historical',
     component: HistoricalComponent
+  },
+  {
+    path: 'estimate',
+    component: EstimateComponent
   },
   {
     path: 'contract',

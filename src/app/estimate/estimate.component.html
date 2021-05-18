@@ -1,0 +1,38 @@
+<table>
+  <tr>
+
+    <th><legend class="text-center"><h1>Purchase price estimate</h1><span class="req"><small>
+                                 </small></span></legend>
+<ngx-charts-bar-vertical
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="single"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  (select)="onSelect($event)">
+</ngx-charts-bar-vertical></th>
+    <th style="padding-left: 10px;"><legend class="text-center"><h1>Rental price estimate</h1><span class="req"><small>
+                                 </small></span></legend>
+      <ngx-charts-bar-vertical
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="single"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        (select)="onSelect($event)">
+      </ngx-charts-bar-vertical></th>
+  </tr>
+</table>
+

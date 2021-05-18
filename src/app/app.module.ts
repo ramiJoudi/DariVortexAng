@@ -15,8 +15,10 @@ import {NgxPayPalModule} from 'ngx-paypal';
 import { AvatarModule } from 'ngx-avatar';
 import { HistoricalComponent } from './historical/historical.component';
 import { ContractComponent } from './contract/contract.component';
+import { EstimateComponent } from './estimate/estimate.component';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 @NgModule({
-  declarations: [AppComponent, DetailComponent, ListingsComponent, FormulaireComponent, HistoricalComponent, ContractComponent ],
+  declarations: [AppComponent, DetailComponent, ListingsComponent, FormulaireComponent, HistoricalComponent, ContractComponent, EstimateComponent ],
   imports: [BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -24,6 +26,7 @@ import { ContractComponent } from './contract/contract.component';
     HttpClientModule ,
     FormsModule ,
     NoopAnimationsModule,
+    NgxChartsModule,
     NgxPayPalModule,
     AvatarModule],
   providers: [SearchBuyRentService],
