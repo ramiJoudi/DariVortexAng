@@ -27,15 +27,15 @@ export class DashboardComponent implements OnInit {
   customColors = [
     {
       name: "Scam",
-      value: '#0000ff'
+      value: '#096c80'
     },
     {
       name: "Bad words",
-      value: '#0000ff'
+      value: '#096c80'
     },
     {
       name: "Not serious",
-      value: '#0000ff'
+      value: '#096c80'
     },]
     
  claimsP=[

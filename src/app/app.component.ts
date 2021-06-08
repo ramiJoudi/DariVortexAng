@@ -8,7 +8,8 @@ import {
 } from '@angular/core';
 import { LoginServiceService } from './loginService/login-service.service';
 import { TokenStorageService } from './loginService/token-storage.service';
- 
+
+
 @Component({
   selector: 'rl-root',
   templateUrl: './app.component.html',
@@ -49,6 +50,7 @@ export class AppComponent implements OnInit {
   showClientOp: boolean;
   showOwnerBoard: boolean;
   showOpBoard: boolean;
+  showForget:boolean;
   constructor(
  
     public LS:LoginServiceService ,
@@ -69,7 +71,8 @@ export class AppComponent implements OnInit {
       }
     }
     
-
+    if(localStorage.getItem('forgetAcc')=='true')
+    this.showForget=true;
 
 
     // this.LS.isLogedIn = !!this.tokenStorageService.getToken();
@@ -93,4 +96,5 @@ export class AppComponent implements OnInit {
     this.tokenStorageService.signOut();
     window.location.reload();
   }
+
 }

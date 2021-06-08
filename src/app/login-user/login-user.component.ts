@@ -290,6 +290,11 @@ getImage() {
     );
 
 }
+forgotred(){
+  localStorage.setItem('forgetAcc','true');
+  this.router.navigate(['/Reset']);
+ window.location.reload();
+}
 
 
 }

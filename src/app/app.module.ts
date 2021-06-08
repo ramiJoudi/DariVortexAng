@@ -24,9 +24,11 @@ import { UserClaimComponent } from './user-claim/user-claim.component';
 import { TesttestComponent } from './testtest/testtest.component';
 import{NgxChartsModule} from '@swimlane/ngx-charts';
 import { Test2Component } from './test2/test2.component';
+import { ResetPWDComponent } from './reset-pwd/reset-pwd.component';
+import { ChangepwdComponent } from './reset-pwd/changepwd/changepwd.component';
  
 @NgModule({
-  declarations: [AppComponent, DetailComponent, ListingsComponent, SettingsComponent, LoginUserComponent, EmailVerifComponent, AdminBoardComponent, ClientBoardComponent, OwnerBoardComponent, OpBoardComponent, DashboardComponent, ManageUsersComponent, SearchfilterPipe, UserClaimComponent, TesttestComponent, Test2Component,   ],
+  declarations: [AppComponent, DetailComponent, ListingsComponent, SettingsComponent, LoginUserComponent, EmailVerifComponent, AdminBoardComponent, ClientBoardComponent, OwnerBoardComponent, OpBoardComponent, DashboardComponent, ManageUsersComponent, SearchfilterPipe, UserClaimComponent, TesttestComponent, Test2Component, ResetPWDComponent, ChangepwdComponent,   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,HttpClientModule,  FormsModule,ReactiveFormsModule,AvatarModule,NgxChartsModule,NgxPaginationModule,BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],

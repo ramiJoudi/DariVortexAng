@@ -2,4 +2,5 @@
   <!-- <rl-login-user></rl-login-user> -->
 <div  *ngIf="this.LS.showAdminBoard" ><rl-admin-board></rl-admin-board></div>
 <div *ngIf="this.LS.showClientBoard"><rl-client-board></rl-client-board></div>
- <div  *ngIf="!this.LS.isLogedIn"><rl-login-user></rl-login-user></div> 
+ <div  *ngIf="!this.LS.isLogedIn && !this.showForget"><rl-login-user></rl-login-user></div> 
+ <div  *ngIf="this.showForget"><rl-reset-pwd></rl-reset-pwd></div>

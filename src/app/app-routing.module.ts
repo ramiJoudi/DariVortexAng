@@ -9,20 +9,27 @@ import { EmailVerifComponent } from './email-verif/email-verif.component';
 import { AuthGuard } from './guard/auth.guard';
 import { DashGuard } from './guard/dash.guard';
 import { LoginGuardGuard } from './guard/login-guard.guard';
+import { ResetGuard } from './guard/reset.guard';
 
 import { LoginUserComponent} from './login-user/login-user.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { OpBoardComponent } from './op-board/op-board.component';
 import { OwnerBoardComponent } from './owner-board/owner-board.component';
+import { ChangepwdComponent } from './reset-pwd/changepwd/changepwd.component';
+import { ResetPWDComponent } from './reset-pwd/reset-pwd.component';
 import { SettingsComponent } from './settings/settings.component';
 import { Test2Component } from './test2/test2.component';
 import { TesttestComponent } from './testtest/testtest.component';
 import { UserClaimComponent } from './user-claim/user-claim.component';
 
+
 const routes: Routes = [
   {path:"",redirectTo:"login",pathMatch:"full"},  {path:"login",component:LoginUserComponent,canActivate:[LoginGuardGuard]}, 
   {path:"jareb",component:TesttestComponent},
   {path:"jareb2",component:Test2Component},
+  {path:'Reset',component:ResetPWDComponent,canActivate:[ResetGuard]},{
+    path:'change',component:ChangepwdComponent
+  },
   {
     path: 'listings',
     component: ListingsComponent,

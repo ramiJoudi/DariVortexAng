@@ -23,6 +23,9 @@ export class LoginServiceService {
   R: number;
   Upass:string;
    Ulogin:any;
+   private SendCode ="http://localhost:81/login/ResetPwd";
+    private findcode ="http://localhost:81/findCode";
+   private changePwdF="http://localhost:81/login/ResetPwd";
    constructor(private http : HttpClient) { }
  
  
@@ -47,9 +50,16 @@ export class LoginServiceService {
   }
 
 
+  resetSendCode(un:string): Observable<any> {
+    return this.http.get (`${this.SendCode}/${un}`); 
+  }
+ findCode(code:string): Observable<any> {
+    return this.http.get (`${this.findcode}/${code}`,{responseType: 'text' as 'json'}); 
+  }
 
-
-
+  changePwdFm(code:string,pwd:string ){
+    return this.http.post(`${this.changePwdF}/${code}`,pwd,{responseType: 'text' as 'json'})
+  }
    getCurrentUser(): Observable<any> {
     return this.http.get("http://localhost:81/getAthUser",httpOptions); 
   }

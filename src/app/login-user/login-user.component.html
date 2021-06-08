@@ -2,7 +2,7 @@
 <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
   
 <body >
-  <div class="cont"    >
+  <div class="cont">
     <div class="form sign-in"  >
       <h2>Sign In</h2>
       <label>
@@ -14,7 +14,7 @@
         <input type="password" [(ngModel)]="U2.pwd">
       </label>
       <button class="submit" type="button" (click)="dologin()"  >Sign In</button>
-      <p class="forgot-pass">Forgot Password ?</p>
+      <p class="forgot-pass" (click)="forgotred()">Forgot Password ?</p>
       <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
       <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
   
